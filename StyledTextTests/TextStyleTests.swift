@@ -13,17 +13,16 @@ class TextStyleTests: XCTestCase {
     
     func test_initializersPassed() {
         let style = TextStyle(
-            name: "name",
             size: 12,
             attributes: [.foregroundColor: UIColor.white],
             traits: [.traitItalic, .traitBold],
             minSize: 11,
             maxSize: 13
         )
-        XCTAssertEqual(style.name, "name")
+        XCTAssertNotNil(style.fontDescriptor.fontAttributes[.name])
         XCTAssertEqual(style.size, 12)
         XCTAssertEqual(style.attributes[.foregroundColor] as! UIColor, UIColor.white)
-        XCTAssertEqual(style.traits, [UIFontDescriptorSymbolicTraits.traitItalic, UIFontDescriptorSymbolicTraits.traitBold])
+        XCTAssertEqual(style.fontDescriptor.symbolicTraits, [UIFontDescriptorSymbolicTraits.traitItalic, UIFontDescriptorSymbolicTraits.traitBold])
         XCTAssertEqual(style.minSize, 11)
         XCTAssertEqual(style.maxSize, 13)
     }
@@ -52,7 +51,6 @@ class TextStyleTests: XCTestCase {
     func test_whenNameDiffers_thatHashMisses() {
         XCTAssertNotEqual(
             TextStyle(
-                name: "name",
                 size: 12,
                 attributes: [.foregroundColor: UIColor.white],
                 traits: [.traitItalic, .traitBold],
@@ -60,7 +58,7 @@ class TextStyleTests: XCTestCase {
                 maxSize: 13
                 ).hashValue,
             TextStyle(
-                name: "foo",
+                name: "Helvetica",
                 size: 12,
                 attributes: [.foregroundColor: UIColor.white],
                 traits: [.traitItalic, .traitBold],
@@ -136,7 +134,6 @@ class TextStyleTests: XCTestCase {
     func test_whenTraitsDiffer_thatHashMisses() {
         XCTAssertNotEqual(
             TextStyle(
-                name: "name",
                 size: 12,
                 attributes: [.foregroundColor: UIColor.white],
                 traits: [.traitItalic, .traitBold],
@@ -144,7 +141,6 @@ class TextStyleTests: XCTestCase {
                 maxSize: 13
                 ).hashValue,
             TextStyle(
-                name: "name",
                 size: 12,
                 attributes: [.foregroundColor: UIColor.white],
                 traits: [.traitItalic],
