@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -75,7 +75,7 @@
 		455B6097B64A6528CBA6689D488CDF3A /* UIImage+Diff.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Diff.swift"; path = "Snap/Core/Infrastructure/Extension/UIImage/UIImage+Diff.swift"; sourceTree = "<group>"; };
 		48DAA0F15A6327A135C62E8CA7E6732D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4954F1CF4C89D8ACF0BA160F8D1ECFF9 /* Pods-StyledTextTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StyledTextTests-resources.sh"; sourceTree = "<group>"; };
-		4D1812900AE7D23031E7A385B50B04FB /* Snap.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Snap.swift.modulemap; sourceTree = "<group>"; };
+		4D1812900AE7D23031E7A385B50B04FB /* Snap.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Snap.swift.modulemap; sourceTree = "<group>"; };
 		5075E94FE94697ADFB84C0425A7BF6CD /* UIView+Render.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Render.swift"; path = "Snap/Core/Infrastructure/Extension/UIView/UIView+Render.swift"; sourceTree = "<group>"; };
 		52D865A69C5F8A125813DA10F277A618 /* Matcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Matcher.swift; path = Snap/Core/Application/Matcher/Matcher.swift; sourceTree = "<group>"; };
 		53B09544B57B58015FC7287AB274A754 /* UIImage+Compare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Compare.swift"; path = "Snap/Core/Infrastructure/Extension/UIImage/UIImage+Compare.swift"; sourceTree = "<group>"; };
@@ -83,10 +83,10 @@
 		5816AC296118F11885E519FF9C4B9D54 /* UIImage+Normalized.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Normalized.swift"; path = "Snap/Core/Infrastructure/Extension/UIImage/UIImage+Normalized.swift"; sourceTree = "<group>"; };
 		5C21682D277C4A4508926A80336372B0 /* Pods-StyledTextTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StyledTextTests-umbrella.h"; sourceTree = "<group>"; };
 		642A7AD5A2EB343C908FE3787A6A9A92 /* CALayer+Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Image.swift"; path = "Snap/Core/Infrastructure/Extension/CALayer/CALayer+Image.swift"; sourceTree = "<group>"; };
-		7A046A02260F0789670F54AD9DC639AA /* Pods-StyledTextTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StyledTextTests.modulemap"; sourceTree = "<group>"; };
+		7A046A02260F0789670F54AD9DC639AA /* Pods-StyledTextTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StyledTextTests.modulemap"; sourceTree = "<group>"; };
 		87EE4C255DA645140E2A5D6B477B515E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8996383755D597330195B50D1B56FD2C /* Pods-StyledTextTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StyledTextTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		944F980AECCAC6968B074DCE0CBE0F9E /* Snap.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Snap.swift-dummy.m"; sourceTree = "<group>"; };
 		978CD4D0DC6B0733AE334B8111F0B929 /* Pods-StyledTextTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StyledTextTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		98C4A43C63229A501C18EF953496BE05 /* Assembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assembly.swift; path = Snap/Core/Infrastructure/Assembly/Assembly.swift; sourceTree = "<group>"; };
@@ -96,9 +96,9 @@
 		AF15979AC8F8557FBF3AB7C0D5F03999 /* ExtractViewImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtractViewImage.swift; path = Snap/Core/Application/Actions/ExtractViewImage.swift; sourceTree = "<group>"; };
 		B77DE791ADDAEE5044118C24A36C654E /* SnapshotViewMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapshotViewMatcher.swift; path = Snap/Core/Application/Matcher/SnapshotViewMatcher.swift; sourceTree = "<group>"; };
 		B81B75DDBA8AF820445315DD5E4D0230 /* Pods-StyledTextTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StyledTextTests-frameworks.sh"; sourceTree = "<group>"; };
-		B98CD284F378E40A763F00EC35DE59F7 /* Snap_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Snap_swift.framework; path = Snap.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98CD284F378E40A763F00EC35DE59F7 /* Snap_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Snap_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADAD5B2A3073D937EDCD2AE64808347 /* TestTarget+Reference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TestTarget+Reference.swift"; path = "Snap/Core/Domain/Model/TestTarget+Reference.swift"; sourceTree = "<group>"; };
-		BE9198227F28B9C8020460DE05AE2E48 /* Pods_StyledTextTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StyledTextTests.framework; path = "Pods-StyledTextTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE9198227F28B9C8020460DE05AE2E48 /* Pods_StyledTextTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyledTextTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE7AB8101D45AD49233F1BEDDCFD1C3 /* ApplicationEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplicationEnvironment.swift; path = Snap/Core/Infrastructure/Utils/Environment/ApplicationEnvironment.swift; sourceTree = "<group>"; };
 		CDFE3943190A665FC4BFBDFD35F2A662 /* TestTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TestTarget.swift; path = Snap/Core/Domain/Model/TestTarget.swift; sourceTree = "<group>"; };
 		CE184FC3DFE8D3D908AD767156C19FF4 /* SnapshotViewExpectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapshotViewExpectation.swift; path = Snap/Core/Application/Expectation/SnapshotViewExpectation.swift; sourceTree = "<group>"; };
@@ -242,7 +242,6 @@
 				5075E94FE94697ADFB84C0425A7BF6CD /* UIView+Render.swift */,
 				D52C2C49BF188BBA8E95B49F40BB2437 /* Support Files */,
 			);
-			name = Snap.swift;
 			path = Snap.swift;
 			sourceTree = "<group>";
 		};
@@ -558,6 +557,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;

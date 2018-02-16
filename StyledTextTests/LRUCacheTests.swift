@@ -175,5 +175,20 @@ class LRUCacheTests: XCTestCase {
         XCTAssertEqual(cache.map.count, 3)
         XCTAssertEqual(cache.size, 10)
     }
+
+    func test_whenGettingExistingObject_thatItDoesntLoop() {
+        let cache = LRUCache<String, TestValue>(maxSize: 10, clearOnWarning: false)
+
+        cache.set("foo", value: TestValue(size: 4, value: "cat"))
+        cache.set("bar", value: TestValue(size: 3, value: "dog"))
+
+        let _ = cache.get("foo")
+
+        XCTAssertNotNil(cache.head?.tail)
+        XCTAssertEqual(cache.head?.key, "foo")
+        XCTAssertEqual(cache.head?.next?.key, "bar")
+        XCTAssertNotNil(cache.head?.tail?.key, "bar")
+        XCTAssertNil(cache.head?.next?.next)
+    }
     
 }
