@@ -12,12 +12,9 @@ import XCTest
 class StyledTextTests: XCTestCase {
     
     func test_renderingStyledtextToAttributedString() {
-        let name = UIFont.systemFont(ofSize: 1).fontName
         let style = TextStyle(
-            name: name,
             size: 12,
-            attributes: [.foregroundColor: UIColor.white],
-            traits: [.traitBold, .traitItalic]
+            attributes: [.foregroundColor: UIColor.white]
         )
         let text = StyledText(text: "foo", style: style)
         let render = text.render(contentSizeCategory: .large)
@@ -28,7 +25,6 @@ class StyledTextTests: XCTestCase {
 
         let font = attributes[.font] as! UIFont
         XCTAssertEqual(font.familyName, UIFont.systemFont(ofSize: 1).familyName)
-        XCTAssertEqual(font.fontDescriptor.symbolicTraits, [.traitItalic, .traitBold])
         XCTAssertEqual(font.pointSize, 12)
     }
     

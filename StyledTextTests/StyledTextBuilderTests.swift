@@ -25,22 +25,22 @@ class StyledTextBuilderTests: XCTestCase {
     }
 
     func test_whenAddingAttributes() {
-        let render = StyledTextBuilder(styledText: StyledText(text: "foo", style: TextStyle(traits: .traitBold)))
-            .add(styledText: StyledText(text: " bar", style: TextStyle(traits: .traitItalic)))
+        let render = StyledTextBuilder(styledText: StyledText(text: "foo", style: TextStyle(font: .system(.bold))))
+            .add(styledText: StyledText(text: " bar", style: TextStyle(font: .system(.italic))))
             .render(contentSizeCategory: .large)
         XCTAssertEqual(render.string, "foo bar")
 
         let font1 = render.attributes(at: 1, effectiveRange: nil)[.font] as! UIFont
-        XCTAssertEqual(font1.fontDescriptor.symbolicTraits, .traitBold)
+        XCTAssertTrue(font1.fontDescriptor.symbolicTraits.contains(.traitBold))
 
         let font2 = render.attributes(at: 5, effectiveRange: nil)[.font] as! UIFont
-        XCTAssertEqual(font2.fontDescriptor.symbolicTraits, .traitItalic)
+        XCTAssertTrue(font2.fontDescriptor.symbolicTraits.contains(.traitItalic))
     }
 
     func test_whenAddingAttributes_withSavingState_thenRestoring() {
-        let builder = StyledTextBuilder(styledText: StyledText(text: "foo", style: TextStyle(traits: .traitBold)))
+        let builder = StyledTextBuilder(styledText: StyledText(text: "foo", style: TextStyle(font: .system(.bold))))
             .save()
-            .add(styledText: StyledText(text: " bar", style: TextStyle(traits: .traitItalic)))
+            .add(styledText: StyledText(text: " bar", style: TextStyle(font: .system(.italic))))
             .restore()
             .add(text: " baz")
         XCTAssertEqual(builder.allText, "foo bar baz")
@@ -49,13 +49,16 @@ class StyledTextBuilderTests: XCTestCase {
         XCTAssertEqual(render.string, "foo bar baz")
 
         let font1 = render.attributes(at: 1, effectiveRange: nil)[.font] as! UIFont
-        XCTAssertEqual(font1.fontDescriptor.symbolicTraits, .traitBold)
+        XCTAssertTrue(font1.fontDescriptor.symbolicTraits.contains(.traitBold))
+        XCTAssertFalse(font1.fontDescriptor.symbolicTraits.contains(.traitItalic))
 
         let font2 = render.attributes(at: 5, effectiveRange: nil)[.font] as! UIFont
-        XCTAssertEqual(font2.fontDescriptor.symbolicTraits, .traitItalic)
+        XCTAssertFalse(font2.fontDescriptor.symbolicTraits.contains(.traitBold))
+        XCTAssertTrue(font2.fontDescriptor.symbolicTraits.contains(.traitItalic))
 
         let font3 = render.attributes(at: 9, effectiveRange: nil)[.font] as! UIFont
-        XCTAssertEqual(font3.fontDescriptor.symbolicTraits, .traitBold)
+        XCTAssertTrue(font3.fontDescriptor.symbolicTraits.contains(.traitBold))
+        XCTAssertFalse(font3.fontDescriptor.symbolicTraits.contains(.traitItalic))
     }
     
 }

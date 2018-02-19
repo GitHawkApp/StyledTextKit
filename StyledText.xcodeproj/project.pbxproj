@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29383DCB203B249C00877564 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29383DCA203B249C00877564 /* Font.swift */; };
 		29822E131FE05247008532D2 /* StyledText.h in Headers */ = {isa = PBXBuildFile; fileRef = 29822E111FE05247008532D2 /* StyledText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29822E201FE0525F008532D2 /* StyledTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29822E1F1FE0525F008532D2 /* StyledTextTests.swift */; };
 		29822E221FE0525F008532D2 /* StyledText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29822E0E1FE05247008532D2 /* StyledText.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29383DCA203B249C00877564 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		29822E0E1FE05247008532D2 /* StyledText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StyledText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29822E111FE05247008532D2 /* StyledText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyledText.h; sourceTree = "<group>"; };
 		29822E121FE05247008532D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				29822E461FE2BBC4008532D2 /* CGImage+LRUCachable.swift */,
 				29822E4A1FE2CC8E008532D2 /* CGSize+LRUCachable.swift */,
 				29822E3C1FE211C8008532D2 /* CGSize+Utility.swift */,
+				29383DCA203B249C00877564 /* Font.swift */,
 				29822E2E1FE0528F008532D2 /* Hashable+Combined.swift */,
 				29822E121FE05247008532D2 /* Info.plist */,
 				29822E421FE21884008532D2 /* LRUCache.swift */,
@@ -343,6 +346,7 @@
 			files = (
 				29822E2D1FE05289008532D2 /* TextStyle.swift in Sources */,
 				29822E4F1FE338A2008532D2 /* UIScreen+Static.swift in Sources */,
+				29383DCB203B249C00877564 /* Font.swift in Sources */,
 				29822E291FE0527D008532D2 /* StyledTextBuilder.swift in Sources */,
 				29822E3D1FE211C8008532D2 /* CGSize+Utility.swift in Sources */,
 				29822E4B1FE2CC8E008532D2 /* CGSize+LRUCachable.swift in Sources */,
