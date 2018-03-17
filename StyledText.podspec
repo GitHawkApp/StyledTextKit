@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = 'https://github.com/GitHawkApp/StyledText'
   spec.authors      = { 'Ryan Nystrom' => 'rnystrom@whoisryannystrom.com' }
   spec.summary      = 'NSAttributedString building.'
-  spec.source       = { :git => 'https://github.com/GitHawkApp/StyledText/StyledText.git', :tag => '#{s.version}' }
+  spec.source       = { :git => 'https://github.com/GitHawkApp/StyledText/StyledText.git', :tag => spec.version.to_s }
   spec.source_files = 'StyledText/*.swift'
   spec.platform     = :ios, '10.0'
 end
