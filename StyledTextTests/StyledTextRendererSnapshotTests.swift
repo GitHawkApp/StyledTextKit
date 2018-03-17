@@ -31,25 +31,25 @@ class SnapTests: XCTestCase {
     }
 
     func test_lorem_100() {
-        let builder = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle()))
-        let renderer = StyledTextRenderer(builder: builder, backgroundColor: .white, scale: testScale)
+        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let renderer = StyledTextRenderer(string: string, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 100, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_200() {
-        let builder = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle()))
-        let renderer = StyledTextRenderer(builder: builder, backgroundColor: .white, scale: testScale)
+        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let renderer = StyledTextRenderer(string: string, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 200, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_300() {
-        let builder = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle()))
-        let renderer = StyledTextRenderer(builder: builder, backgroundColor: .white, scale: testScale)
+        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let renderer = StyledTextRenderer(string: string, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_complexBuilder() {
-        let builder = StyledTextBuilder(styledText: StyledText(text: "Hello, ", style: TextStyle()))
+        let string = StyledTextBuilder(styledText: StyledText(text: "Hello, ", style: TextStyle()))
             .save()
             .add(text: "world!", traits: [.traitItalic, .traitBold])
             .restore()
@@ -59,7 +59,8 @@ class SnapTests: XCTestCase {
             .add(styledText: StyledText(text: "Big text. ", style: TextStyle(size: 20)))
             .restore()
             .add(text: "Background color.", traits: .traitBold, attributes: [.backgroundColor: UIColor.blue, .foregroundColor: UIColor.white])
-        let renderer = StyledTextRenderer(builder: builder, backgroundColor: .white)
+            .build()
+        let renderer = StyledTextRenderer(string: string, backgroundColor: .white)
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
