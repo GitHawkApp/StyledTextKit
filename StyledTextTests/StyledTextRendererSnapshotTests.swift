@@ -13,8 +13,8 @@ import Snap_swift
 extension UIView {
 
     func mount(width: CGFloat, renderer: StyledTextRenderer) -> UIView {
-        frame = CGRect(origin: .zero, size: renderer.size(contentSizeCategory: .large, width: width))
-        layer.contents = renderer.render(contentSizeCategory: .large, width: width).image
+        frame = CGRect(origin: .zero, size: renderer.size(width: width))
+        layer.contents = renderer.render(width: width).image
         return self
     }
 
@@ -32,19 +32,19 @@ class SnapTests: XCTestCase {
 
     func test_lorem_100() {
         let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
-        let renderer = StyledTextRenderer(string: string, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 100, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_200() {
         let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
-        let renderer = StyledTextRenderer(string: string, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 200, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_300() {
         let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
-        let renderer = StyledTextRenderer(string: string, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
@@ -60,7 +60,7 @@ class SnapTests: XCTestCase {
             .restore()
             .add(text: "Background color.", traits: .traitBold, attributes: [.backgroundColor: UIColor.blue, .foregroundColor: UIColor.white])
             .build()
-        let renderer = StyledTextRenderer(string: string, backgroundColor: .white)
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white)
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
