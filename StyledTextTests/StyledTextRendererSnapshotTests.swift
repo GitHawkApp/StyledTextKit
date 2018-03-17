@@ -64,4 +64,12 @@ class SnapTests: XCTestCase {
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
+    func test_clearBackground() {
+        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, scale: testScale)
+        let view = UIView()
+        view.backgroundColor = .blue
+        expect(view.mount(width: 300, renderer: renderer)).toMatchSnapshot()
+    }
+
 }
