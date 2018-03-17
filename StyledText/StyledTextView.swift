@@ -96,7 +96,7 @@ open class StyledTextView: UIView {
             width: width
         )
         layer.contents = result.image
-        frame = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: result.size), renderer.inset)
+        frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.size)
     }
 
 }

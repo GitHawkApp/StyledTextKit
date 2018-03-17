@@ -6,7 +6,7 @@
 //  Copyright © 2017 Ryan Nystrom. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public final class StyledTextRenderer {
 
@@ -76,7 +76,7 @@ public final class StyledTextRenderer {
     }
 
     public func size(
-        contentSizeCategory: UIContentSizeCategory = .large,
+        contentSizeCategory: UIContentSizeCategory = UIApplication.shared.preferredContentSizeCategory,
         width: CGFloat
         ) -> CGSize {
         os_unfair_lock_lock(&lock)
@@ -85,14 +85,21 @@ public final class StyledTextRenderer {
         return _size(StyledTextRenderCacheKey(width: width, attributedText: attributedText))
     }
 
-    static let globalBitmapCache = LRUCache<StyledTextRenderCacheKey, CGImage>(
+    public func viewSize(
+        contentSizeCategory: UIContentSizeCategory = UIApplication.shared.preferredContentSizeCategory,
+        width: CGFloat
+        ) -> CGSize {
+        return size(contentSizeCategory: contentSizeCategory, width: width).resized(inset: inset)
+    }
+
+    private static let globalBitmapCache = LRUCache<StyledTextRenderCacheKey, CGImage>(
         maxSize: 1024 * 1024 * 20, // 20mb
         compaction: .default,
         clearOnWarning: true
     )
 
     public func render(
-        contentSizeCategory: UIContentSizeCategory = .large,
+        contentSizeCategory: UIContentSizeCategory = UIApplication.shared.preferredContentSizeCategory,
         width: CGFloat
         ) -> (image: CGImage?, size: CGSize) {
         os_unfair_lock_lock(&lock)
