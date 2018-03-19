@@ -12,14 +12,14 @@ import XCTest
 class StyledTextBuilderTests: XCTestCase {
     
     func test_whenOneLevel() {
-        let render = StyledTextBuilder(styledText: StyledText(text: "foo"))
+        let render = StyledTextBuilder(text: "foo")
             .build()
             .render(contentSizeCategory: .large)
         XCTAssertEqual(render.string, "foo")
     }
 
     func test_whenAddingString() {
-        let render = StyledTextBuilder(styledText: StyledText(text: "foo"))
+        let render = StyledTextBuilder(text: "foo")
             .add(text: " bar")
             .build()
             .render(contentSizeCategory: .large)
@@ -27,8 +27,8 @@ class StyledTextBuilderTests: XCTestCase {
     }
 
     func test_whenAddingAttributes() {
-        let render = StyledTextBuilder(styledText: StyledText(text: "foo", style: TextStyle(font: .system(.bold))))
-            .add(styledText: StyledText(text: " bar", style: TextStyle(font: .system(.italic))))
+        let render = StyledTextBuilder(styledText: StyledText(storage: .text("foo"), style: TextStyle(font: .system(.bold))))
+            .add(styledText: StyledText(storage: .text(" bar"), style: TextStyle(font: .system(.italic))))
             .build()
             .render(contentSizeCategory: .large)
         XCTAssertEqual(render.string, "foo bar")
@@ -41,9 +41,9 @@ class StyledTextBuilderTests: XCTestCase {
     }
 
     func test_whenAddingAttributes_withSavingState_thenRestoring() {
-        let string = StyledTextBuilder(styledText: StyledText(text: "foo", style: TextStyle(font: .system(.bold))))
+        let string = StyledTextBuilder(styledText: StyledText(storage: .text("foo"), style: TextStyle(font: .system(.bold))))
             .save()
-            .add(styledText: StyledText(text: " bar", style: TextStyle(font: .system(.italic))))
+            .add(styledText: StyledText(storage: .text(" bar"), style: TextStyle(font: .system(.italic))))
             .restore()
             .add(text: " baz")
             .build()

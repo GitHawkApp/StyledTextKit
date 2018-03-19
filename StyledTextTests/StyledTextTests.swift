@@ -16,7 +16,7 @@ class StyledTextTests: XCTestCase {
             size: 12,
             attributes: [.foregroundColor: UIColor.white]
         )
-        let text = StyledText(text: "foo", style: style)
+        let text = StyledText(storage: .text("foo"), style: style)
         let render = text.render(contentSizeCategory: .large)
         XCTAssertEqual(render.string, "foo")
 

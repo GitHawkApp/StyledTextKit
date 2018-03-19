@@ -31,32 +31,32 @@ class SnapTests: XCTestCase {
     }
 
     func test_lorem_100() {
-        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let string = StyledTextBuilder(text: lorem).build()
         let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 100, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_200() {
-        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let string = StyledTextBuilder(text: lorem).build()
         let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 200, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_300() {
-        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let string = StyledTextBuilder(text: lorem).build()
         let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_complexBuilder() {
-        let string = StyledTextBuilder(styledText: StyledText(text: "Hello, ", style: TextStyle()))
+        let string = StyledTextBuilder(text: "Hello, ")
             .save()
             .add(text: "world!", traits: [.traitItalic, .traitBold])
             .restore()
             .add(text: " Pop back. ")
             .save()
-            .add(styledText: StyledText(text: "Tiny text. ", style: TextStyle(size: 6)))
-            .add(styledText: StyledText(text: "Big text. ", style: TextStyle(size: 20)))
+            .add(styledText: StyledText(storage: .text("Tiny text. "), style: TextStyle(size: 6)))
+            .add(styledText: StyledText(storage: .text("Big text. "), style: TextStyle(size: 20)))
             .restore()
             .add(text: "Background color.", traits: .traitBold, attributes: [.backgroundColor: UIColor.blue, .foregroundColor: UIColor.white])
             .build()
@@ -65,7 +65,7 @@ class SnapTests: XCTestCase {
     }
 
     func test_clearBackground() {
-        let string = StyledTextBuilder(styledText: StyledText(text: lorem, style: TextStyle())).build()
+        let string = StyledTextBuilder(text: lorem).build()
         let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, scale: testScale)
         let view = UIView()
         view.backgroundColor = .blue
