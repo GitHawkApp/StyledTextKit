@@ -1,3 +1,5 @@
 language: swift
-xcode_project: StyledText.xcworkspace
+xcode_workspace: StyledText.xcworkspace
 xcode_scheme: StyledTextTests
+osx_image: xcode9.3
+xcode_sdk: 
