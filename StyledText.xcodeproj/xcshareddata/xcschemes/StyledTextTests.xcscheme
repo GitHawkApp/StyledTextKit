@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "29822E0D1FE05247008532D2"
-               BuildableName = "StyledText.framework"
-               BlueprintName = "StyledText"
-               ReferencedContainer = "container:StyledText.xcodeproj">
+               BlueprintIdentifier = "F433AFDB7135C66E7DB1593AFA1AC182"
+               BuildableName = "Pods_StyledTextTests.framework"
+               BlueprintName = "Pods-StyledTextTests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,7 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -42,19 +42,12 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "29822E0D1FE05247008532D2"
-            BuildableName = "StyledText.framework"
-            BlueprintName = "StyledText"
-            ReferencedContainer = "container:StyledText.xcodeproj">
+            BlueprintIdentifier = "F433AFDB7135C66E7DB1593AFA1AC182"
+            BuildableName = "Pods_StyledTextTests.framework"
+            BlueprintName = "Pods-StyledTextTests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "SNAP_REFERENCE_IMAGE_PATH"
-            value = "$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/snapshots/"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -71,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "29822E0D1FE05247008532D2"
-            BuildableName = "StyledText.framework"
-            BlueprintName = "StyledText"
-            ReferencedContainer = "container:StyledText.xcodeproj">
+            BlueprintIdentifier = "F433AFDB7135C66E7DB1593AFA1AC182"
+            BuildableName = "Pods_StyledTextTests.framework"
+            BlueprintName = "Pods-StyledTextTests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -89,10 +82,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "29822E0D1FE05247008532D2"
-            BuildableName = "StyledText.framework"
-            BlueprintName = "StyledText"
-            ReferencedContainer = "container:StyledText.xcodeproj">
+            BlueprintIdentifier = "F433AFDB7135C66E7DB1593AFA1AC182"
+            BuildableName = "Pods_StyledTextTests.framework"
+            BlueprintName = "Pods-StyledTextTests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
