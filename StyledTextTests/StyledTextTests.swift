@@ -11,7 +11,7 @@ import XCTest
 
 class StyledTextTests: XCTestCase {
     
-    func test_renderingStyledtextToAttributedString() {
+    func test_renderingStyledText_fromString_toAttributedString() {
         let style = TextStyle(
             size: 12,
             attributes: [.foregroundColor: UIColor.white]
@@ -26,6 +26,27 @@ class StyledTextTests: XCTestCase {
         let font = attributes[.font] as! UIFont
         XCTAssertEqual(font.familyName, UIFont.systemFont(ofSize: 1).familyName)
         XCTAssertEqual(font.pointSize, 12)
+    }
+
+    func test_renderingStyledText_fromNSAttributedString_toAttributedString() {
+        let style = TextStyle(
+            size: 12,
+            attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.systemFont(ofSize: 10),
+            ]
+        )
+        let attributedString = NSAttributedString(string: "foo", attributes: [
+            .foregroundColor: UIColor.red,
+            .font: UIFont.boldSystemFont(ofSize: 20),
+            ])
+        let text = StyledText(storage: .attributedText(attributedString), style: style)
+        let render = text.render(contentSizeCategory: .large)
+        XCTAssertEqual(render.string, "foo")
+
+        let attributes = render.attributes(at: 1, effectiveRange: nil)
+        XCTAssertEqual(attributes[.foregroundColor] as! UIColor, UIColor.red)
+        XCTAssertEqual(attributes[.font] as! UIFont, UIFont.boldSystemFont(ofSize: 20))
     }
     
 }
