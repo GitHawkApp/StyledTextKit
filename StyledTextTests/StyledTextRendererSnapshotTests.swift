@@ -60,7 +60,7 @@ class SnapTests: XCTestCase {
             .restore()
             .add(text: "Background color.", traits: .traitBold, attributes: [.backgroundColor: UIColor.blue, .foregroundColor: UIColor.white])
             .build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white)
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
