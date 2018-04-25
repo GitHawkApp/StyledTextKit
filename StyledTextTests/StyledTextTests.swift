@@ -48,5 +48,15 @@ class StyledTextTests: XCTestCase {
         XCTAssertEqual(attributes[.foregroundColor] as! UIColor, UIColor.red)
         XCTAssertEqual(attributes[.font] as! UIFont, UIFont.boldSystemFont(ofSize: 20))
     }
+
+    func test_renderingStyledText_fromNSAttributedString_toAttributedString_whenEmpty() {
+        let attributedString = NSAttributedString(string: "", attributes: [
+            .foregroundColor: UIColor.red,
+            .font: UIFont.boldSystemFont(ofSize: 20),
+            ])
+        let text = StyledText(storage: .attributedText(attributedString), style: TextStyle())
+        let render = text.render(contentSizeCategory: .large)
+        XCTAssertEqual(render.string, "")
+    }
     
 }
