@@ -34,6 +34,7 @@
 		29822E511FE33FB7008532D2 /* StyledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29822E501FE33FB7008532D2 /* StyledTextView.swift */; };
 		299F63D6205DA72A0015D901 /* StyledTextString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299F63D5205DA72A0015D901 /* StyledTextString.swift */; };
 		299F63EC20606E510015D901 /* NSAttributedString+Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299F63EB20606E510015D901 /* NSAttributedString+Trim.swift */; };
+		29FE022B20BDFF2500135617 /* NSAttributedStringKey+StyledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FE022A20BDFF2500135617 /* NSAttributedStringKey+StyledText.swift */; };
 		575FB4D16572209E15EE3840 /* Pods_StyledTextTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B6FF70E8175B869FF2D395 /* Pods_StyledTextTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		29822E501FE33FB7008532D2 /* StyledTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledTextView.swift; sourceTree = "<group>"; };
 		299F63D5205DA72A0015D901 /* StyledTextString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledTextString.swift; sourceTree = "<group>"; };
 		299F63EB20606E510015D901 /* NSAttributedString+Trim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Trim.swift"; sourceTree = "<group>"; };
+		29FE022A20BDFF2500135617 /* NSAttributedStringKey+StyledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedStringKey+StyledText.swift"; sourceTree = "<group>"; };
 		64B6FF70E8175B869FF2D395 /* Pods_StyledTextTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyledTextTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68752FBF073DD3E1FC5028A0 /* Pods-StyledTextTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyledTextTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StyledTextTests/Pods-StyledTextTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA0611F2D52563D9D227F037 /* Pods-StyledTextTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyledTextTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StyledTextTests/Pods-StyledTextTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				29822E401FE217D5008532D2 /* StyledTextRenderer.swift */,
 				299F63D5205DA72A0015D901 /* StyledTextString.swift */,
 				29822E501FE33FB7008532D2 /* StyledTextView.swift */,
+				29FE022A20BDFF2500135617 /* NSAttributedStringKey+StyledText.swift */,
 				29822E2C1FE05289008532D2 /* TextStyle.swift */,
 				29822E321FE052A7008532D2 /* UIContentSizeCategory+Scaling.swift */,
 				29822E301FE05299008532D2 /* UIFont+UnionTraits.swift */,
@@ -367,6 +370,7 @@
 				29822E2F1FE0528F008532D2 /* Hashable+Combined.swift in Sources */,
 				29822E411FE217D5008532D2 /* StyledTextRenderer.swift in Sources */,
 				29822E2B1FE05282008532D2 /* StyledText.swift in Sources */,
+				29FE022B20BDFF2500135617 /* NSAttributedStringKey+StyledText.swift in Sources */,
 				299F63EC20606E510015D901 /* NSAttributedString+Trim.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
