@@ -1,4 +1,6 @@
-# StyledText
+<p align="center">
+  <img src="/images/styledtext.png" />
+</p>
 
 `StyledText` is a declarative building and fast rendering attributed string library. It serves as a replacement to `NSAttributedString` and `UILabel` for background-thread size and bitmap caching.
 
