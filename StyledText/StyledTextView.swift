@@ -163,16 +163,16 @@ open class StyledTextView: UIView {
 
     // MARK: Public API
 
-    open func configure(renderer: StyledTextRenderer, width: CGFloat) {
+    open func configure(with renderer: StyledTextRenderer, width: CGFloat) {
         self.renderer = renderer
         layer.contentsScale = renderer.scale
-        reposition(width: width)
+        reposition(for: width)
         accessibilityLabel = renderer.string.allText
     }
 
-    open func reposition(width: CGFloat) {
+    open func reposition(for width: CGFloat) {
         guard let renderer = self.renderer else { return }
-        let result = renderer.render(width: width)
+        let result = renderer.render(for: width)
         layer.contents = result.image
         frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.size)
     }

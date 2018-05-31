@@ -13,8 +13,8 @@ import Snap_swift
 extension UIView {
 
     func mount(width: CGFloat, renderer: StyledTextRenderer) -> UIView {
-        frame = CGRect(origin: .zero, size: renderer.size(width: width))
-        layer.contents = renderer.render(width: width).image
+        frame = CGRect(origin: .zero, size: renderer.size(in: width))
+        layer.contents = renderer.render(for: width).image
         return self
     }
 
