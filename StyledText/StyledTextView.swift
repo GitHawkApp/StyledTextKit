@@ -48,6 +48,7 @@ open class StyledTextView: UIView {
         self.longPressGesture = long
 
         self.highlightColor = UIColor.black.withAlphaComponent(0.1)
+        layer.addSublayer(highlightLayer)
     }
 
     public var highlightColor: UIColor? {
@@ -112,10 +113,7 @@ open class StyledTextView: UIView {
         guard let renderer = renderer,
             let attributes = renderer.attributes(at: point),
             attributes.attributes[.highlight] != nil
-            else {
-                highlightLayer.removeFromSuperlayer()
-                return
-        }
+            else { return }
 
         let storage = renderer.storage
         let maxLen = storage.length
@@ -155,13 +153,11 @@ open class StyledTextView: UIView {
             path.append(UIBezierPath(roundedRect: rect.insetBy(dx: -2, dy: -2), cornerRadius: 3))
         }
 
-        highlightLayer.frame = convert(bounds, to: window)
+        highlightLayer.frame = bounds
         highlightLayer.path = path.cgPath
-        window?.layer.addSublayer(highlightLayer)
     }
 
     private func clearHighlight() {
-        highlightLayer.removeFromSuperlayer()
         highlightLayer.path = nil
     }
 
