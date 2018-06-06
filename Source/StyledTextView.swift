@@ -162,6 +162,11 @@ open class StyledTextView: UIView {
         highlightLayer.path = nil
     }
 
+    private func setRenderResults(renderer: StyledTextRenderer, result: (CGImage?, CGSize)) {
+        self.layer.contents = result.0
+        self.frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.1)
+    }
+
     static var renderQueue = DispatchQueue(label: "com.whoisryannystrom.StyledText.renderQueue", qos: .default, attributes: DispatchQueue.Attributes(rawValue: 0), autoreleaseFrequency: .workItem, target: nil)
 
     // MARK: Public API
@@ -175,19 +180,29 @@ open class StyledTextView: UIView {
 
     open func reposition(for width: CGFloat) {
         guard let capturedRenderer = self.renderer else { return }
+        // First, we check if we can immediately apply a previously cached render result.
+        let cachedResult = capturedRenderer.cachedRender(for: width)
+        if let cachedImage = cachedResult.image, let cachedSize = cachedResult.size {
+            setRenderResults(renderer: capturedRenderer, result: (cachedImage, cachedSize))
+            return
+        }
+
+        // We have to do a full render, so if we are drawing async it's time to dispatch:
         if drawsAsync {
             StyledTextView.renderQueue.async {
+                // Compute the render result (sizing and rendering to an image) on a bg thread
                 let result = capturedRenderer.render(for: width)
                 DispatchQueue.main.async {
+                    // If the renderer changed, then our computed result is now invalid, so we have to throw it out.
                     if capturedRenderer !== self.renderer { return }
-                    self.layer.contents = result.image
-                    self.frame = CGRect(origin: CGPoint(x: capturedRenderer.inset.left, y: capturedRenderer.inset.top), size: result.size)
+                    // If the renderer hasn't changed, we're OK to actually apply the result of our computation.
+                    self.setRenderResults(renderer: capturedRenderer, result: result)
                 }
             }
         } else {
+            // We're in fully-synchronous mode. Immediately compute the result and set it.
             let result = capturedRenderer.render(for: width)
-            self.layer.contents = result.image
-            self.frame = CGRect(origin: CGPoint(x: capturedRenderer.inset.left, y: capturedRenderer.inset.top), size: result.size)
+            setRenderResults(renderer: capturedRenderer, result: result)
         }
     }
 }
