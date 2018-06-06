@@ -17,6 +17,7 @@ open class StyledTextView: UIView {
 
     open weak var delegate: StyledTextViewDelegate?
     open var gesturableAttributes = Set<NSAttributedStringKey>()
+    open var drawsAsync = false
 
     private var renderer: StyledTextRenderer?
     private var tapGesture: UITapGestureRecognizer?
@@ -59,7 +60,7 @@ open class StyledTextView: UIView {
         set { highlightLayer.fillColor = newValue?.cgColor }
     }
 
-    // MARK: Overries
+    // MARK: Overrides
 
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -161,6 +162,8 @@ open class StyledTextView: UIView {
         highlightLayer.path = nil
     }
 
+    static var renderQueue = DispatchQueue(label: "com.whoisryannystrom.StyledText.renderQueue", qos: .default, attributes: DispatchQueue.Attributes(rawValue: 0), autoreleaseFrequency: .workItem, target: nil)
+
     // MARK: Public API
 
     open func configure(with renderer: StyledTextRenderer, width: CGFloat) {
@@ -171,10 +174,20 @@ open class StyledTextView: UIView {
     }
 
     open func reposition(for width: CGFloat) {
-        guard let renderer = self.renderer else { return }
-        let result = renderer.render(for: width)
-        layer.contents = result.image
-        frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.size)
+        guard let capturedRenderer = self.renderer else { return }
+        if drawsAsync {
+            StyledTextView.renderQueue.async {
+                let result = capturedRenderer.render(for: width)
+                DispatchQueue.main.async {
+                    if capturedRenderer !== self.renderer { return }
+                    self.layer.contents = result.image
+                    self.frame = CGRect(origin: CGPoint(x: capturedRenderer.inset.left, y: capturedRenderer.inset.top), size: result.size)
+                }
+            }
+        } else {
+            let result = capturedRenderer.render(for: width)
+            self.layer.contents = result.image
+            self.frame = CGRect(origin: CGPoint(x: capturedRenderer.inset.left, y: capturedRenderer.inset.top), size: result.size)
+        }
     }
-
 }
