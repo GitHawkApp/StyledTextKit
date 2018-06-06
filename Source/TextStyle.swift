@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct TextStyle: Hashable, Equatable {
+public struct TextStyle: Hashable {
 
     public let font: Font
     public let size: CGFloat

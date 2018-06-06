@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public final class StyledTextBuilder: Hashable, Equatable {
+public final class StyledTextBuilder: Hashable {
 
     internal var styledTexts: [StyledText]
     internal var savedStyles = [TextStyle]()

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public final class StyledTextString: Hashable, Equatable {
+public final class StyledTextString: Hashable {
 
     public enum RenderMode {
         case trimWhitespaceAndNewlines

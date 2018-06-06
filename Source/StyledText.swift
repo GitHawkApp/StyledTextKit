@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public class StyledText: Hashable, Equatable {
+public class StyledText: Hashable {
 
-    public enum Storage: Hashable, Equatable {
+    public enum Storage: Hashable {
         case text(String)
         case attributedText(NSAttributedString)
 

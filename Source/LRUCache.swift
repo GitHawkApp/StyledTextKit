@@ -12,7 +12,7 @@ public protocol LRUCachable {
     var cachedSize: Int { get }
 }
 
-public final class LRUCache<Key: Hashable & Equatable, Value: LRUCachable> {
+public final class LRUCache<Key: Hashable, Value: LRUCachable> {
 
     internal class Node {
 

@@ -8,9 +8,9 @@
 
 import UIKit
 
-public enum Font: Hashable, Equatable {
+public enum Font: Hashable {
 
-    public enum SystemFont: Hashable, Equatable {
+    public enum SystemFont: Hashable {
         case `default`
         case bold
         case italic
