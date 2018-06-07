@@ -144,13 +144,37 @@ open class StyledTextView: UIView {
 
         let range = NSRange(location: min, length: max - min)
 
+        var firstRect: CGRect = CGRect.null
+        var bodyRect: CGRect = CGRect.null
+        var lastRect: CGRect = CGRect.null
+
         let path = UIBezierPath()
+
         renderer.layoutManager.enumerateEnclosingRects(
             forGlyphRange: range,
             withinSelectedGlyphRange: NSRange(location: NSNotFound, length: 0),
             in: renderer.textContainer
         ) { (rect, stop) in
-            path.append(UIBezierPath(roundedRect: rect.insetBy(dx: -2, dy: -2), cornerRadius: 3))
+            if firstRect.isNull {
+                firstRect = rect
+            } else if lastRect.isNull {
+                lastRect = rect
+            } else {
+                // We have a lastRect that was previously filled, now it needs to be dumped into the body
+                bodyRect = lastRect.intersection(bodyRect)
+                // and save the current rect as the new "lastRect"
+                lastRect = rect
+            }
+        }
+
+        if !firstRect.isNull {
+            path.append(UIBezierPath(roundedRect: firstRect.insetBy(dx: -2, dy: -2), cornerRadius: 3))
+        }
+        if !bodyRect.isNull {
+            path.append(UIBezierPath(roundedRect: bodyRect.insetBy(dx: -2, dy: -2), cornerRadius: 3))
+        }
+        if !lastRect.isNull {
+            path.append(UIBezierPath(roundedRect: lastRect.insetBy(dx: -2, dy: -2), cornerRadius: 3))
         }
 
         highlightLayer.frame = bounds
