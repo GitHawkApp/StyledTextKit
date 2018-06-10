@@ -163,11 +163,16 @@ open class StyledTextView: UIView {
     }
 
     private func setRenderResults(renderer: StyledTextRenderer, result: (CGImage?, CGSize)) {
-        self.layer.contents = result.0
-        self.frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.1)
+        layer.contents = result.0
+        frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.1)
     }
 
-    static var renderQueue = DispatchQueue(label: "com.whoisryannystrom.StyledText.renderQueue", qos: .default, attributes: DispatchQueue.Attributes(rawValue: 0), autoreleaseFrequency: .workItem, target: nil)
+    static var renderQueue = DispatchQueue(
+      label: "com.whoisryannystrom.StyledText.renderQueue",
+      qos: .default, attributes: DispatchQueue.Attributes(rawValue: 0),
+      autoreleaseFrequency: .workItem, 
+      target: nil
+    )
 
     // MARK: Public API
 
