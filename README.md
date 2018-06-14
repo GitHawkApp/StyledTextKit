@@ -113,7 +113,7 @@ let contentSizeCategory = UIApplication.shared.preferredContentSizeCategory
 
 DispatchQueue.global().async {
   let builder = StyledTextBuilder(...)
-  let renderer = StyledTextRenderer(text: builder.build(), contentSizeCategory: contentSizeCategory)
+  let renderer = StyledTextRenderer(string: builder.build(), contentSizeCategory: contentSizeCategory)
     .warm(width: width) // warms the size cache
 
   DispatchQueue.main.async {
