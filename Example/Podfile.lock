@@ -1,0 +1,16 @@
+PODS:
+  - StyledTextKit (0.1.1)
+
+DEPENDENCIES:
+  - StyledTextKit (from `../StyledTextKit.podspec`)
+
+EXTERNAL SOURCES:
+  StyledTextKit:
+    :path: "../StyledTextKit.podspec"
+
+SPEC CHECKSUMS:
+  StyledTextKit: 7fb706b7dce1bf5adcf7df6054b5c321b94ebfc0
+
+PODFILE CHECKSUM: cce33de777ba45b96bae71bcdc8c7705f353b112
+
+COCOAPODS: 1.5.0
