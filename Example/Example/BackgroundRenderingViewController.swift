@@ -10,6 +10,12 @@ import UIKit
 import StyledTextKit
 import SafariServices
 
+extension NSAttributedStringKey {
+    
+    public static let tapable = NSAttributedStringKey(rawValue: "tapable")
+    
+}
+
 class BackgroundRenderingViewController: UIViewController {
     
     @IBOutlet weak var containter: UIView!
@@ -22,6 +28,24 @@ class BackgroundRenderingViewController: UIViewController {
         return textView
     }()
     
+    let contentSizeCategory = UIApplication.shared.preferredContentSizeCategory
+    
+    let style = TextStyle(
+        size: 20,
+        attributes: [.foregroundColor: UIColor.red]
+    )
+    
+    let styleLarge = TextStyle(
+        size: 32,
+        attributes: [.foregroundColor: UIColor.green]
+    )
+    
+    let styleTapable = TextStyle(
+        size: 16,
+        attributes: [.foregroundColor: UIColor.orange,
+                     .underlineStyle: 1]
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,38 +53,31 @@ class BackgroundRenderingViewController: UIViewController {
         
         containter.addSubview(styledTextView)
         
-        let width = styledTextView.bounds.width
-        let contentSizeCategory = UIApplication.shared.preferredContentSizeCategory
-
-        let style = TextStyle(
-            size: 20,
-            attributes: [.foregroundColor: UIColor.red]
-        )
-        
-        let styleLarge = TextStyle(
-            size: 32,
-            attributes: [.foregroundColor: UIColor.green]
-        )
-
         DispatchQueue.global().async {
             let builder = StyledTextBuilder(text: "So ")
                 .save()
-                .add(style: style)
+                .add(style: self.style)
                 .add(text: "good")
                 .restore()
                 .save()
-                .add(style: styleLarge)
+                .add(style: self.styleLarge)
                 .add(text: "👍!")
                 .restore()
-                .add(text: "StyledTextKit", attributes: [.link: "https://github.com/GitHawkApp/StyledTextKit"])
+                .save()
+                .add(style: self.styleTapable)
+                .add(text: "Tap me to StyledTextKit GitHub", attributes: [.tapable: #selector(self.tapAction)])
             
-            let renderer = StyledTextRenderer(string: builder.build(), contentSizeCategory: contentSizeCategory)
-                .warm(width: width) // warms the size cache
+            let renderer = StyledTextRenderer(string: builder.build(), contentSizeCategory: self.contentSizeCategory)
+                .warm(width: 240) // warms the size cache
             
             DispatchQueue.main.async {
-                self.styledTextView.configure(with: renderer, width: width)
+                self.styledTextView.configure(with: renderer, width: 240)
             }
         }
+    }
+    
+    @objc private func tapAction() {
+        present(SFSafariViewController(url: URL(string: "https://github.com/GitHawkApp/StyledTextKit")!), animated: true, completion: nil)
     }
     
 }
@@ -68,9 +85,9 @@ class BackgroundRenderingViewController: UIViewController {
 extension BackgroundRenderingViewController: StyledTextViewDelegate {
     
     func didTap(view: StyledTextView, attributes: [NSAttributedStringKey : Any], point: CGPoint) {
-        guard let link = attributes[.link] as? String else { return }
+        guard let action = attributes[.tapable] as? Selector else { return }
 
-        present(SFSafariViewController(url: URL(string: link)!), animated: true, completion: nil)
+        perform(action)
     }
     
     func didLongPress(view: StyledTextView, attributes: [NSAttributedStringKey : Any], point: CGPoint) {}
