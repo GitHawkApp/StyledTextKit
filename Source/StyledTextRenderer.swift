@@ -28,7 +28,8 @@ public final class StyledTextRenderer {
         inset: UIEdgeInsets = .zero,
         backgroundColor: UIColor? = nil,
         layoutManager: NSLayoutManager = NSLayoutManager(),
-        scale: CGFloat = StyledTextScreenScale
+        scale: CGFloat = StyledTextScreenScale,
+        maximumNumberOfLines: Int = 0
         ) {
         self.string = string
         self.contentSizeCategory = contentSizeCategory
@@ -38,7 +39,7 @@ public final class StyledTextRenderer {
 
         textContainer = NSTextContainer()
         textContainer.exclusionPaths = []
-        textContainer.maximumNumberOfLines = 0
+        textContainer.maximumNumberOfLines = maximumNumberOfLines
         textContainer.lineFragmentPadding = 0
 
         self.layoutManager = layoutManager
