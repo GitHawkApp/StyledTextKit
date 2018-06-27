@@ -84,7 +84,7 @@ public final class StyledTextRenderer {
     public func size(in width: CGFloat = .greatestFiniteMagnitude) -> CGSize {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
-        return _size(StyledTextRenderCacheKey(width: width, attributedText: storage, backgroundColor: backgroundColor))
+        return _size(StyledTextRenderCacheKey(width: width, attributedText: storage, backgroundColor: backgroundColor, maximumNumberOfLines: textContainer.maximumNumberOfLines))
     }
 
     public func viewSize(in width: CGFloat = .greatestFiniteMagnitude) -> CGSize {
@@ -101,7 +101,7 @@ public final class StyledTextRenderer {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
 
-        let key = StyledTextRenderCacheKey(width: width, attributedText: storage, backgroundColor: backgroundColor)
+        let key = StyledTextRenderCacheKey(width: width, attributedText: storage, backgroundColor: backgroundColor, maximumNumberOfLines: textContainer.maximumNumberOfLines)
         let size = _size(key)
         let cache = StyledTextRenderer.globalBitmapCache
         if let cached = cache[key] {

@@ -71,5 +71,16 @@ class SnapTests: XCTestCase {
         view.backgroundColor = .blue
         expect(view.mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
-
+    
+    func test_maxNumberOfLinesUnlimited() {
+        let string = StyledTextBuilder(text: lorem).build()
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale, maximumNumberOfLines: 0)
+        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+    }
+    
+    func test_maxNumberOfLinesLimited() {
+        let string = StyledTextBuilder(text: lorem).build()
+        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale, maximumNumberOfLines: 2)
+        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+    }
 }
