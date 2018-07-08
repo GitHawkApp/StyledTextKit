@@ -15,6 +15,7 @@
 		099226C520D28A450002EBDA /* BudingAttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099226C420D28A450002EBDA /* BudingAttributedStringViewController.swift */; };
 		099226C720D28CA60002EBDA /* RenderingTextBitmapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099226C620D28CA60002EBDA /* RenderingTextBitmapsViewController.swift */; };
 		099226CB20D2950A0002EBDA /* BackgroundRenderingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099226CA20D2950A0002EBDA /* BackgroundRenderingViewController.swift */; };
+		2958DCFB20F28DED00A2CE81 /* FastScrollingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DCFA20F28DED00A2CE81 /* FastScrollingTableViewController.swift */; };
 		578C0B23B8D7C8CE6687BB7F /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2C7EA4A15739B6A51CF1F4 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		099226C420D28A450002EBDA /* BudingAttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudingAttributedStringViewController.swift; sourceTree = "<group>"; };
 		099226C620D28CA60002EBDA /* RenderingTextBitmapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderingTextBitmapsViewController.swift; sourceTree = "<group>"; };
 		099226CA20D2950A0002EBDA /* BackgroundRenderingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRenderingViewController.swift; sourceTree = "<group>"; };
+		2958DCFA20F28DED00A2CE81 /* FastScrollingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastScrollingTableViewController.swift; sourceTree = "<group>"; };
 		2A2C7EA4A15739B6A51CF1F4 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065BF1E1909BCEFA4A18FF1 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 				099226C420D28A450002EBDA /* BudingAttributedStringViewController.swift */,
 				099226C620D28CA60002EBDA /* RenderingTextBitmapsViewController.swift */,
 				099226CA20D2950A0002EBDA /* BackgroundRenderingViewController.swift */,
+				2958DCFA20F28DED00A2CE81 /* FastScrollingTableViewController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				099226C520D28A450002EBDA /* BudingAttributedStringViewController.swift in Sources */,
 				099226C720D28CA60002EBDA /* RenderingTextBitmapsViewController.swift in Sources */,
 				099226B520D286950002EBDA /* ViewController.swift in Sources */,
+				2958DCFB20F28DED00A2CE81 /* FastScrollingTableViewController.swift in Sources */,
 				099226CB20D2950A0002EBDA /* BackgroundRenderingViewController.swift in Sources */,
 				099226B320D286950002EBDA /* AppDelegate.swift in Sources */,
 			);
