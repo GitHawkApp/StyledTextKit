@@ -97,6 +97,14 @@ public final class StyledTextRenderer {
         clearOnWarning: true
     )
 
+    public func cachedRender(for width: CGFloat) -> (image: CGImage?, size: CGSize?) {
+        os_unfair_lock_lock(&lock)
+        defer { os_unfair_lock_unlock(&lock) }
+
+        let key = StyledTextRenderCacheKey(width: width, attributedText: storage, backgroundColor: backgroundColor)
+        return (StyledTextRenderer.globalBitmapCache[key], StyledTextRenderer.globalSizeCache[key])
+    }
+
     public func render(for width: CGFloat) -> (image: CGImage?, size: CGSize) {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
