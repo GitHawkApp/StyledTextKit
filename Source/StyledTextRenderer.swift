@@ -101,7 +101,12 @@ public final class StyledTextRenderer {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
 
-        let key = StyledTextRenderCacheKey(width: width, attributedText: storage, backgroundColor: backgroundColor)
+        let key = StyledTextRenderCacheKey(
+            width: width,
+            attributedText: storage,
+            backgroundColor: backgroundColor,
+            maximumNumberOfLines: 0
+        )
         return (StyledTextRenderer.globalBitmapCache[key], StyledTextRenderer.globalSizeCache[key])
     }
 
