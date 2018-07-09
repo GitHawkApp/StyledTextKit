@@ -55,9 +55,9 @@ Create a `StyledTextRenderer` for sizing and rendering text by initializing it w
 
 ```swift
 let renderer = StyledTextRenderer(
-    string: string,
-    contentSizeCategory: .large
-  )
+  string: string,
+  contentSizeCategory: .large
+)
 ```
 
 Once created, you can easily get the size of the text constrained to a width:
