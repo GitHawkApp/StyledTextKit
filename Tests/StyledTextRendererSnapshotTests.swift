@@ -27,7 +27,7 @@ class SnapTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-//        isRecording = true
+        isRecording = true
     }
 
     func test_lorem_100() {
