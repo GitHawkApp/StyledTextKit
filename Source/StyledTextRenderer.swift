@@ -53,7 +53,9 @@ public final class StyledTextRenderer {
             backgroundColor: backgroundColor,
             layoutManager: layoutManager,
             scale: scale,
-            maximumNumberOfLines: maximumNumberOfLines
+            maximumNumberOfLines: maximumNumberOfLines,
+            sizeCache: nil,
+            bitmapCache: nil
         )
     }
 
@@ -65,8 +67,8 @@ public final class StyledTextRenderer {
         layoutManager: NSLayoutManager,
         scale: CGFloat,
         maximumNumberOfLines: Int,
-        sizeCache: LRUCache<StyledTextRenderCacheKey, CGSize>? = nil,
-        bitmapCache: LRUCache<StyledTextRenderCacheKey, CGImage>? = nil
+        sizeCache: LRUCache<StyledTextRenderCacheKey, CGSize>?,
+        bitmapCache: LRUCache<StyledTextRenderCacheKey, CGImage>?
         ) {
         self.string = string
         self.contentSizeCategory = contentSizeCategory

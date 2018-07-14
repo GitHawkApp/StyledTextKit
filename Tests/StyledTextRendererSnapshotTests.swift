@@ -37,6 +37,7 @@ class SnapTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+//        isRecording = true
         sizeCache.clear()
         bitmapCache.clear()
     }
@@ -46,8 +47,11 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(
             string: string,
             contentSizeCategory: .large,
+            inset: .zero,
             backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
             scale: testScale,
+            maximumNumberOfLines: 0,
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
@@ -59,8 +63,11 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(
             string: string,
             contentSizeCategory: .large,
+            inset: .zero,
             backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
             scale: testScale,
+            maximumNumberOfLines: 0,
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
@@ -72,8 +79,11 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(
             string: string,
             contentSizeCategory: .large,
+            inset: .zero,
             backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
             scale: testScale,
+            maximumNumberOfLines: 0,
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
@@ -95,8 +105,11 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(
             string: string,
             contentSizeCategory: .large,
+            inset: .zero,
             backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
             scale: testScale,
+            maximumNumberOfLines: 0,
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
@@ -116,7 +129,9 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(
             string: string,
             contentSizeCategory: .large,
+            inset: .zero,
             backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
             scale: testScale,
             maximumNumberOfLines: 0,
             sizeCache: sizeCache,
@@ -130,7 +145,9 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(
             string: string,
             contentSizeCategory: .large,
+            inset: .zero,
             backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
             scale: testScale,
             maximumNumberOfLines: 2,
             sizeCache: sizeCache,
