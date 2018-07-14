@@ -24,27 +24,59 @@ class SnapTests: XCTestCase {
 
     let testScale: CGFloat = 2
     let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    let sizeCache = LRUCache<StyledTextRenderCacheKey, CGSize>(
+        maxSize: 1000, // CGSize cache size always 1, treat as item count
+        compaction: .default,
+        clearOnWarning: true
+    )
+    let bitmapCache = LRUCache<StyledTextRenderCacheKey, CGImage>(
+        maxSize: 1024 * 1024 * 20, // 20mb
+        compaction: .default,
+        clearOnWarning: true
+    )
 
     override func setUp() {
         super.setUp()
-//        isRecording = true
+        sizeCache.clear()
+        bitmapCache.clear()
     }
 
     func test_lorem_100() {
         let string = StyledTextBuilder(text: lorem).build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            backgroundColor: .white,
+            scale: testScale,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
         expect(UIView().mount(width: 100, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_200() {
         let string = StyledTextBuilder(text: lorem).build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            backgroundColor: .white,
+            scale: testScale,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
         expect(UIView().mount(width: 200, renderer: renderer)).toMatchSnapshot()
     }
 
     func test_lorem_300() {
         let string = StyledTextBuilder(text: lorem).build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            backgroundColor: .white,
+            scale: testScale,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
@@ -60,7 +92,14 @@ class SnapTests: XCTestCase {
             .restore()
             .add(text: "Background color.", traits: .traitBold, attributes: [.backgroundColor: UIColor.blue, .foregroundColor: UIColor.white])
             .build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale)
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            backgroundColor: .white,
+            scale: testScale,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 
@@ -74,13 +113,29 @@ class SnapTests: XCTestCase {
     
     func test_maxNumberOfLinesUnlimited() {
         let string = StyledTextBuilder(text: lorem).build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale, maximumNumberOfLines: 0)
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            backgroundColor: .white,
+            scale: testScale,
+            maximumNumberOfLines: 0,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
     
     func test_maxNumberOfLinesLimited() {
         let string = StyledTextBuilder(text: lorem).build()
-        let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, backgroundColor: .white, scale: testScale, maximumNumberOfLines: 2)
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            backgroundColor: .white,
+            scale: testScale,
+            maximumNumberOfLines: 2,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
 }
