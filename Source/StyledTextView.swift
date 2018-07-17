@@ -205,7 +205,10 @@ open class StyledTextView: UIView {
 
     private func highlightIfNeeded() {
         let path = UIBezierPath()
-        defer { highlightLayer.path = path.cgPath }
+        defer {
+            highlightLayer.path = path.cgPath
+            layer.insertSublayer(highlightLayer, at: 0)
+        }
 
         guard let renderer = renderer else { return }
 
