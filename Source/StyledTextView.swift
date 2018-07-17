@@ -49,8 +49,11 @@ open class StyledTextView: UIView {
         addGestureRecognizer(long)
         self.longPressGesture = long
 
-        self.tapHighlightColor = UIColor.black.withAlphaComponent(0.1)
+        self.tapHighlightColor = UIColor.clear
         layer.addSublayer(tapHighlightLayer)
+        
+        self.highlightColor = UIColor.clear
+        layer.addSublayer(highlightLayer)
     }
 
     public var tapHighlightColor: UIColor? {
