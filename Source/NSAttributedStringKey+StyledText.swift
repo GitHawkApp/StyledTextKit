@@ -10,6 +10,7 @@ import Foundation
 
 public extension NSAttributedStringKey {
 
+    static let tapHighlight = NSAttributedStringKey("com.whoisryannystrom.styledtextkit.tapHighlight")
     static let highlight = NSAttributedStringKey("com.whoisryannystrom.styledtextkit.highlight")
 
 }
