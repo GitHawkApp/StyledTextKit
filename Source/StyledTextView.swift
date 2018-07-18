@@ -71,8 +71,25 @@ open class StyledTextView: UIView {
         }
         set { highlightLayer.fillColor = newValue?.cgColor }
     }
+    
+    private var highlightPath: CGPath? {
+        get {
+            return highlightLayer.path
+        }
+        set {
+            highlightLayer.removeFromSuperlayer()
+            highlightLayer.path = newValue
+            layer.insertSublayer(highlightLayer, at: 0)
+        }
+    }
 
     // MARK: Overrides
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        highlightIfNeeded()
+    }
 
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -205,10 +222,7 @@ open class StyledTextView: UIView {
 
     private func highlightIfNeeded() {
         let path = UIBezierPath()
-        defer {
-            highlightLayer.path = path.cgPath
-            layer.insertSublayer(highlightLayer, at: 0)
-        }
+        defer { highlightPath = path.cgPath }
 
         guard let renderer = renderer else { return }
 
