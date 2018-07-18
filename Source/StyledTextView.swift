@@ -24,6 +24,7 @@ open class StyledTextView: UIView {
     private var longPressGesture: UILongPressGestureRecognizer?
     private var tapHighlightLayer = CAShapeLayer()
     private var highlightLayer = CAShapeLayer()
+    private var contentsLayer = CALayer()
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +40,7 @@ open class StyledTextView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.contentsGravity = kCAGravityTopLeft
+        contentsLayer.contentsGravity = kCAGravityTopLeft
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
         tap.cancelsTouchesInView = false
@@ -54,6 +56,8 @@ open class StyledTextView: UIView {
         
         self.highlightColor = UIColor.clear
         layer.addSublayer(highlightLayer)
+
+        layer.addSublayer(contentsLayer)
     }
 
     public var tapHighlightColor: UIColor? {
@@ -62,6 +66,16 @@ open class StyledTextView: UIView {
             return UIColor(cgColor: color)
         }
         set { tapHighlightLayer.fillColor = newValue?.cgColor }
+    }
+
+    private var tapHighlightPath: CGPath? {
+        get {
+            return tapHighlightLayer.path
+        }
+        set {
+            tapHighlightLayer.path = newValue
+            tapHighlightLayer.frame = bounds
+        }
     }
 
     public var highlightColor: UIColor? {
@@ -77,9 +91,8 @@ open class StyledTextView: UIView {
             return highlightLayer.path
         }
         set {
-            highlightLayer.removeFromSuperlayer()
             highlightLayer.path = newValue
-            layer.insertSublayer(highlightLayer, at: 0)
+            highlightLayer.frame = bounds
         }
     }
 
@@ -88,7 +101,7 @@ open class StyledTextView: UIView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        highlightIfNeeded()
+        reposition(for: bounds.width)
     }
 
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -173,6 +186,13 @@ open class StyledTextView: UIView {
         }
 
         let range = NSRange(location: min, length: max - min)
+        let path = highlightPath(for: range)
+
+        tapHighlightPath = path?.cgPath
+    }
+
+    private func highlightPath(for range: NSRange) -> UIBezierPath? {
+        guard let renderer = renderer else { return nil }
 
         var firstRect: CGRect = CGRect.null
         var bodyRect: CGRect = CGRect.null
@@ -207,8 +227,7 @@ open class StyledTextView: UIView {
             path.append(UIBezierPath(roundedRect: lastRect.insetBy(dx: -2, dy: -2), cornerRadius: 3))
         }
 
-        tapHighlightLayer.frame = bounds
-        tapHighlightLayer.path = path.cgPath
+        return path
     }
 
     private func clearTapHighlight() {
@@ -216,8 +235,10 @@ open class StyledTextView: UIView {
     }
 
     private func setRenderResults(renderer: StyledTextRenderer, result: (CGImage?, CGSize)) {
-        layer.contents = result.0
-        frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.1)
+        contentsLayer.contents = result.0
+        contentsLayer.frame = CGRect(origin: CGPoint(x: renderer.inset.left, y: renderer.inset.top), size: result.1)
+
+
     }
 
     private func highlightIfNeeded() {
@@ -226,21 +247,20 @@ open class StyledTextView: UIView {
 
         guard let renderer = renderer else { return }
 
-        renderer.storage.enumerateAttributes(in: NSMakeRange(0, renderer.string.allText.count)) { attributes, range, _ in
+        renderer.storage.enumerateAttributes(in: NSMakeRange(0, renderer.storage.length), options: .longestEffectiveRangeNotRequired) { attributes, range, _ in
             if attributes[.highlight] != nil {
-                let openRange = NSRange(location: NSNotFound, length: 0)
-                renderer.layoutManager.enumerateEnclosingRects(forGlyphRange: range, withinSelectedGlyphRange: openRange, in: renderer.textContainer) { rect, _ in
-                    path.append(UIBezierPath(roundedRect: rect.insetBy(dx: -2, dy: -2), cornerRadius: 2.0))
+                if let highlightPath = highlightPath(for: range) {
+                    path.append(highlightPath)
                 }
             }
         }
     }
 
     static var renderQueue = DispatchQueue(
-      label: "com.whoisryannystrom.StyledText.renderQueue",
-      qos: .default, attributes: DispatchQueue.Attributes(rawValue: 0),
-      autoreleaseFrequency: .workItem, 
-      target: nil
+        label: "com.whoisryannystrom.StyledText.renderQueue",
+        qos: .default, attributes: DispatchQueue.Attributes(rawValue: 0),
+        autoreleaseFrequency: .workItem,
+        target: nil
     )
 
     // MARK: Public API
@@ -248,6 +268,7 @@ open class StyledTextView: UIView {
     open func configure(with renderer: StyledTextRenderer, width: CGFloat) {
         self.renderer = renderer
         layer.contentsScale = renderer.scale
+        contentsLayer.contentsScale = renderer.scale
         reposition(for: width)
         accessibilityLabel = renderer.string.allText
         highlightIfNeeded()
