@@ -65,7 +65,7 @@ class BackgroundRenderingViewController: UIViewController {
                 .restore()
                 .save()
                 .add(style: self.styleTapable)
-                .add(text: "Tap me to StyledTextKit GitHub", attributes: [.tapable: #selector(self.tapAction)])
+                .add(text: "Tap me to StyledTextKit GitHub", attributes: [.tapable: #selector(self.tapAction), .highlight: NSObject()])
             
             let renderer = StyledTextRenderer(string: builder.build(), contentSizeCategory: self.contentSizeCategory)
                 .warm(width: 240) // warms the size cache
