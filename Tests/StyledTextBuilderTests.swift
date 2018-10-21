@@ -65,23 +65,4 @@ class StyledTextBuilderTests: XCTestCase {
         XCTAssertFalse(font3.fontDescriptor.symbolicTraits.contains(.traitItalic))
     }
     
-    func test_whenAddingUIImage() {
-        let bundle = Bundle(for: type(of: self))
-        guard let imagePath = bundle.path(forResource: "icons8-github-30", ofType: "png"),
-            let image = UIImage(contentsOfFile: imagePath) else
-        {
-            XCTFail()
-            return
-        }
-        
-        let string = StyledTextBuilder(styledText: StyledText(storage: .text("foo"), style: TextStyle(font: .system(.bold))))
-            .save()
-            .add(image: image)
-            .build()
-        
-        let render = string.render(contentSizeCategory: .medium)
-        
-        XCTAssertTrue(render.containsAttachments(in: NSRange(location: 3, length: 1)))
-    }
-    
 }
