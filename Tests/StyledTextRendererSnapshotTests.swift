@@ -34,6 +34,13 @@ class SnapTests: XCTestCase {
         compaction: .default,
         clearOnWarning: true
     )
+    var githubImage: UIImage {
+        return UIImage(
+            named: "octoface",
+            in: Bundle(for: type(of: self)),
+            compatibleWith: nil
+            )!.withRenderingMode(.alwaysTemplate)
+    }
 
     override func setUp() {
         super.setUp()
@@ -155,4 +162,68 @@ class SnapTests: XCTestCase {
         )
         expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
     }
+
+    func test_addingImageWithTint_withBaseOptions() {
+        let string = StyledTextBuilder(text: "Hello ")
+            .save()
+            .add(image: githubImage, attributes: [.foregroundColor: UIColor.green])
+            .restore()
+            .add(text: " world!")
+            .build()
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            inset: .zero,
+            backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
+            scale: testScale,
+            maximumNumberOfLines: 2,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
+        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+    }
+
+    func test_addingImageWithTint_withCenter() {
+        let string = StyledTextBuilder(text: "Hello ")
+            .save()
+            .add(image: githubImage, options: [.center], attributes: [.foregroundColor: UIColor.green])
+            .restore()
+            .add(text: " world!")
+            .build()
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            inset: .zero,
+            backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
+            scale: testScale,
+            maximumNumberOfLines: 2,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
+        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+    }
+
+    func test_addingImageWithTint_withNoOptions() {
+        let string = StyledTextBuilder(text: "Hello ")
+            .save()
+            .add(image: githubImage, options: [], attributes: [.foregroundColor: UIColor.green])
+            .restore()
+            .add(text: " world!")
+            .build()
+        let renderer = StyledTextRenderer(
+            string: string,
+            contentSizeCategory: .large,
+            inset: .zero,
+            backgroundColor: .white,
+            layoutManager: NSLayoutManager(),
+            scale: testScale,
+            maximumNumberOfLines: 2,
+            sizeCache: sizeCache,
+            bitmapCache: bitmapCache
+        )
+        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+    }
+
 }
