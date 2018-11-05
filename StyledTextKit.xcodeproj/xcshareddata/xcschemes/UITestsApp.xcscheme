@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "1000"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "29822E0D1FE05247008532D2"
-               BuildableName = "StyledTextKit.framework"
-               BlueprintName = "StyledTextKit"
+               BlueprintIdentifier = "D9C656C8216B05F700B02C6D"
+               BuildableName = "UITestsApp.app"
+               BlueprintName = "UITestsApp"
                ReferencedContainer = "container:StyledTextKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,33 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "294F654720C38F4E0040C3FE"
-               BuildableName = "Tests.xctest"
-               BlueprintName = "Tests"
-               ReferencedContainer = "container:StyledTextKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9C656BC216B05DE00B02C6D"
-               BuildableName = "UITests.xctest"
-               BlueprintName = "UITests"
-               ReferencedContainer = "container:StyledTextKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "29822E0D1FE05247008532D2"
-            BuildableName = "StyledTextKit.framework"
-            BlueprintName = "StyledTextKit"
+            BlueprintIdentifier = "D9C656C8216B05F700B02C6D"
+            BuildableName = "UITestsApp.app"
+            BlueprintName = "UITestsApp"
             ReferencedContainer = "container:StyledTextKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -71,22 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "29822E0D1FE05247008532D2"
-            BuildableName = "StyledTextKit.framework"
-            BlueprintName = "StyledTextKit"
+            BlueprintIdentifier = "D9C656C8216B05F700B02C6D"
+            BuildableName = "UITestsApp.app"
+            BlueprintName = "UITestsApp"
             ReferencedContainer = "container:StyledTextKit.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "SNAP_REFERENCE_IMAGE_PATH"
-            value = "$(SOURCE_ROOT)/Tests/snapshots/"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -96,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "29822E0D1FE05247008532D2"
-            BuildableName = "StyledTextKit.framework"
-            BlueprintName = "StyledTextKit"
+            BlueprintIdentifier = "D9C656C8216B05F700B02C6D"
+            BuildableName = "UITestsApp.app"
+            BlueprintName = "UITestsApp"
             ReferencedContainer = "container:StyledTextKit.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
