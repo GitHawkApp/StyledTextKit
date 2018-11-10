@@ -34,8 +34,8 @@ public final class StyledTextRenderer {
         clearOnWarning: true
     )
 
-    internal var sizeCache: LRUCache<StyledTextRenderCacheKey, CGSize>
-    internal var bitmapCache: LRUCache<StyledTextRenderCacheKey, CGImage>
+    internal let sizeCache: LRUCache<StyledTextRenderCacheKey, CGSize>
+    internal let bitmapCache: LRUCache<StyledTextRenderCacheKey, CGImage>
 
     public convenience init(
         string: StyledTextString,

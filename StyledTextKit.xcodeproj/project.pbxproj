@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20DEC7A5869AE2DBDEBEDC3A /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D1CEE14004B5BBA25A669D /* Pods_Tests.framework */; };
+		291E988921978A9C00E5EED9 /* StyledTextStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E988821978A9C00E5EED9 /* StyledTextStringTests.swift */; };
 		294F654D20C38F4E0040C3FE /* StyledTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29822E0E1FE05247008532D2 /* StyledTextKit.framework */; };
 		29B20609217C15B200E4DD9F /* octoface@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B20607217C15B200E4DD9F /* octoface@3x.png */; };
 		29B2060A217C15B200E4DD9F /* octoface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B20608217C15B200E4DD9F /* octoface@2x.png */; };
@@ -25,7 +26,6 @@
 		29BAEE4320C339D100F283EA /* StyledTextKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 29BAEE2E20C339D100F283EA /* StyledTextKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29BAEE4420C339D100F283EA /* NSAttributedString+Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE2F20C339D100F283EA /* NSAttributedString+Trim.swift */; };
 		29BAEE4520C339D100F283EA /* StyledTextRenderCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3020C339D100F283EA /* StyledTextRenderCacheKey.swift */; };
-		29BAEE4620C339D100F283EA /* UIFont+UnionTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3120C339D100F283EA /* UIFont+UnionTraits.swift */; };
 		29BAEE4720C339D100F283EA /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3220C339D100F283EA /* Font.swift */; };
 		29BAEE4820C339D100F283EA /* StyledTextRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3320C339D100F283EA /* StyledTextRenderer.swift */; };
 		29BAEE4920C339D100F283EA /* StyledTextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3420C339D100F283EA /* StyledTextBuilder.swift */; };
@@ -36,7 +36,6 @@
 		3D931C8620F412FF0090FFFB /* StyledTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0E20C339C800F283EA /* StyledTextTests.swift */; };
 		3D931C8720F413010090FFFB /* TextStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE1020C339C800F283EA /* TextStyleTests.swift */; };
 		3D931C8820F413040090FFFB /* UIContentSizeCategoryScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0D20C339C800F283EA /* UIContentSizeCategoryScalingTests.swift */; };
-		3D931C8920F413060090FFFB /* UIFontUnionTraitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEDFE20C339C800F283EA /* UIFontUnionTraitsTests.swift */; };
 		3D931C8A20F4130B0090FFFB /* LRUCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEDFD20C339C800F283EA /* LRUCacheTests.swift */; };
 		D9C656C0216B05DE00B02C6D /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C656BF216B05DE00B02C6D /* UITests.swift */; };
 		D9C656CC216B05F700B02C6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C656CB216B05F700B02C6D /* AppDelegate.swift */; };
@@ -88,12 +87,12 @@
 
 /* Begin PBXFileReference section */
 		290D453620C389CF008F2CB0 /* Snap_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Snap_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		291E988821978A9C00E5EED9 /* StyledTextStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledTextStringTests.swift; sourceTree = "<group>"; };
 		294F654820C38F4E0040C3FE /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29822E0E1FE05247008532D2 /* StyledTextKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StyledTextKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B20607217C15B200E4DD9F /* octoface@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octoface@3x.png"; sourceTree = "<group>"; };
 		29B20608217C15B200E4DD9F /* octoface@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octoface@2x.png"; sourceTree = "<group>"; };
 		29BAEDFD20C339C800F283EA /* LRUCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRUCacheTests.swift; sourceTree = "<group>"; };
-		29BAEDFE20C339C800F283EA /* UIFontUnionTraitsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontUnionTraitsTests.swift; sourceTree = "<group>"; };
 		29BAEE0220C339C800F283EA /* reference_test_lorem_100@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_lorem_100@3x.png"; sourceTree = "<group>"; };
 		29BAEE0320C339C800F283EA /* reference_test_complexbuilder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_complexbuilder@3x.png"; sourceTree = "<group>"; };
 		29BAEE0420C339C800F283EA /* reference_test_clearbackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_clearbackground@3x.png"; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 		29BAEE2E20C339D100F283EA /* StyledTextKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledTextKit.h; sourceTree = "<group>"; };
 		29BAEE2F20C339D100F283EA /* NSAttributedString+Trim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Trim.swift"; sourceTree = "<group>"; };
 		29BAEE3020C339D100F283EA /* StyledTextRenderCacheKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextRenderCacheKey.swift; sourceTree = "<group>"; };
-		29BAEE3120C339D100F283EA /* UIFont+UnionTraits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+UnionTraits.swift"; sourceTree = "<group>"; };
 		29BAEE3220C339D100F283EA /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		29BAEE3320C339D100F283EA /* StyledTextRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextRenderer.swift; sourceTree = "<group>"; };
 		29BAEE3420C339D100F283EA /* StyledTextBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextBuilder.swift; sourceTree = "<group>"; };
@@ -216,17 +214,17 @@
 		29BAEDFC20C339C800F283EA /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				29B20608217C15B200E4DD9F /* octoface@2x.png */,
-				29B20607217C15B200E4DD9F /* octoface@3x.png */,
 				29BAEE1120C339C800F283EA /* Info.plist */,
 				29BAEDFD20C339C800F283EA /* LRUCacheTests.swift */,
+				29B20608217C15B200E4DD9F /* octoface@2x.png */,
+				29B20607217C15B200E4DD9F /* octoface@3x.png */,
 				29BAEDFF20C339C800F283EA /* snapshots */,
 				29BAEE1220C339C800F283EA /* StyledTextBuilderTests.swift */,
 				29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */,
+				291E988821978A9C00E5EED9 /* StyledTextStringTests.swift */,
 				29BAEE0E20C339C800F283EA /* StyledTextTests.swift */,
 				29BAEE1020C339C800F283EA /* TextStyleTests.swift */,
 				29BAEE0D20C339C800F283EA /* UIContentSizeCategoryScalingTests.swift */,
-				29BAEDFE20C339C800F283EA /* UIFontUnionTraitsTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -315,7 +313,6 @@
 				29BAEE3720C339D100F283EA /* StyledTextView.swift */,
 				29BAEE2D20C339D100F283EA /* TextStyle.swift */,
 				29BAEE2620C339D100F283EA /* UIContentSizeCategory+Scaling.swift */,
-				29BAEE3120C339D100F283EA /* UIFont+UnionTraits.swift */,
 				29BAEE2C20C339D100F283EA /* UIScreen+Static.swift */,
 			);
 			path = Source;
@@ -573,9 +570,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D931C8720F413010090FFFB /* TextStyleTests.swift in Sources */,
-				3D931C8920F413060090FFFB /* UIFontUnionTraitsTests.swift in Sources */,
 				3D931C8A20F4130B0090FFFB /* LRUCacheTests.swift in Sources */,
 				3D931C8820F413040090FFFB /* UIContentSizeCategoryScalingTests.swift in Sources */,
+				291E988921978A9C00E5EED9 /* StyledTextStringTests.swift in Sources */,
 				3D931C8520F412FC0090FFFB /* StyledTextRendererSnapshotTests.swift in Sources */,
 				3D931C8620F412FF0090FFFB /* StyledTextTests.swift in Sources */,
 				3D4040F520F40F2B00ED4B3D /* StyledTextBuilderTests.swift in Sources */,
@@ -593,7 +590,6 @@
 				29BAEE4720C339D100F283EA /* Font.swift in Sources */,
 				29BAEE4520C339D100F283EA /* StyledTextRenderCacheKey.swift in Sources */,
 				29BAEE4820C339D100F283EA /* StyledTextRenderer.swift in Sources */,
-				29BAEE4620C339D100F283EA /* UIFont+UnionTraits.swift in Sources */,
 				29BAEE3B20C339D100F283EA /* UIContentSizeCategory+Scaling.swift in Sources */,
 				29BAEE3E20C339D100F283EA /* StyledTextString.swift in Sources */,
 				29BAEE3820C339D100F283EA /* CGImage+LRUCachable.swift in Sources */,
