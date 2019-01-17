@@ -37,7 +37,7 @@ public struct TextStyle: Hashable, Equatable {
     }
 
     public func font(contentSizeCategory: UIContentSizeCategory) -> UIFont {
-        let preferredSize = contentSizeCategory.preferredContentSize(size)
+        let preferredSize = contentSizeCategory.preferredContentSize(size, minSize: minSize, maxSize: maxSize)
 
         switch font {
         case .name(let name):
