@@ -35,7 +35,6 @@
 		3D931C8520F412FC0090FFFB /* StyledTextRendererSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */; };
 		3D931C8620F412FF0090FFFB /* StyledTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0E20C339C800F283EA /* StyledTextTests.swift */; };
 		3D931C8720F413010090FFFB /* TextStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE1020C339C800F283EA /* TextStyleTests.swift */; };
-		3D931C8820F413040090FFFB /* UIContentSizeCategoryScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0D20C339C800F283EA /* UIContentSizeCategoryScalingTests.swift */; };
 		3D931C8920F413060090FFFB /* UIFontUnionTraitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEDFE20C339C800F283EA /* UIFontUnionTraitsTests.swift */; };
 		3D931C8A20F4130B0090FFFB /* LRUCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEDFD20C339C800F283EA /* LRUCacheTests.swift */; };
 		D9C656C0216B05DE00B02C6D /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C656BF216B05DE00B02C6D /* UITests.swift */; };
@@ -101,7 +100,6 @@
 		29BAEE0620C339C800F283EA /* reference_test_lorem_300@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_lorem_300@3x.png"; sourceTree = "<group>"; };
 		29BAEE0920C339C800F283EA /* diff_test_complexbuilder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diff_test_complexbuilder@3x.png"; sourceTree = "<group>"; };
 		29BAEE0C20C339C800F283EA /* failed_test_complexbuilder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failed_test_complexbuilder@3x.png"; sourceTree = "<group>"; };
-		29BAEE0D20C339C800F283EA /* UIContentSizeCategoryScalingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContentSizeCategoryScalingTests.swift; sourceTree = "<group>"; };
 		29BAEE0E20C339C800F283EA /* StyledTextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextTests.swift; sourceTree = "<group>"; };
 		29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextRendererSnapshotTests.swift; sourceTree = "<group>"; };
 		29BAEE1020C339C800F283EA /* TextStyleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleTests.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */,
 				29BAEE0E20C339C800F283EA /* StyledTextTests.swift */,
 				29BAEE1020C339C800F283EA /* TextStyleTests.swift */,
-				29BAEE0D20C339C800F283EA /* UIContentSizeCategoryScalingTests.swift */,
 				29BAEDFE20C339C800F283EA /* UIFontUnionTraitsTests.swift */,
 			);
 			path = Tests;
@@ -575,7 +572,6 @@
 				3D931C8720F413010090FFFB /* TextStyleTests.swift in Sources */,
 				3D931C8920F413060090FFFB /* UIFontUnionTraitsTests.swift in Sources */,
 				3D931C8A20F4130B0090FFFB /* LRUCacheTests.swift in Sources */,
-				3D931C8820F413040090FFFB /* UIContentSizeCategoryScalingTests.swift in Sources */,
 				3D931C8520F412FC0090FFFB /* StyledTextRendererSnapshotTests.swift in Sources */,
 				3D931C8620F412FF0090FFFB /* StyledTextTests.swift in Sources */,
 				3D4040F520F40F2B00ED4B3D /* StyledTextBuilderTests.swift in Sources */,

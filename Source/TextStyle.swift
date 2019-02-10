@@ -15,29 +15,42 @@ public struct TextStyle: Hashable, Equatable {
     public let attributes: [NSAttributedStringKey: Any]
     public let minSize: CGFloat
     public let maxSize: CGFloat
+    public let scalingTextStyle: UIFont.TextStyle
 
     public init(
         font: Font = .system(.default),
         size: CGFloat = UIFont.systemFontSize,
         attributes: [NSAttributedStringKey: Any] = [:],
         minSize: CGFloat = 0,
-        maxSize: CGFloat = .greatestFiniteMagnitude
+        maxSize: CGFloat = .greatestFiniteMagnitude,
+        scalingTextStyle: UIFont.TextStyle = .body
         ) {
         self.font = font
         self.size = size
         self.attributes = attributes
         self.minSize = minSize
         self.maxSize = maxSize
+        self.scalingTextStyle = scalingTextStyle
 
         self._hashValue = font
             .combineHash(with: size)
             .combineHash(with: attributes.count)
             .combineHash(with: minSize)
             .combineHash(with: maxSize)
+            .combineHash(with: scalingTextStyle)
     }
 
     public func font(contentSizeCategory: UIContentSizeCategory) -> UIFont {
-        let preferredSize = contentSizeCategory.preferredContentSize(size)
+        let calculatedSize: CGFloat
+
+        if #available(iOS 11.0, *) {
+            let metrics = UIFontMetrics(forTextStyle: scalingTextStyle)
+            calculatedSize = metrics.scaledValue(for: size, compatibleWith: UITraitCollection(preferredContentSizeCategory: contentSizeCategory))
+        } else {
+            calculatedSize = size * contentSizeCategory.approximateScaleFactor(forTextStyle: scalingTextStyle)
+        }
+
+        let preferredSize = min(max(calculatedSize, minSize), maxSize)
 
         switch font {
         case .name(let name):
@@ -72,6 +85,7 @@ public struct TextStyle: Hashable, Equatable {
             && lhs.minSize == rhs.minSize
             && rhs.maxSize == rhs.maxSize
             && lhs.font == rhs.font
+            && lhs.scalingTextStyle == rhs.scalingTextStyle
             && NSDictionary(dictionary: lhs.attributes).isEqual(to: rhs.attributes)
     }
 
