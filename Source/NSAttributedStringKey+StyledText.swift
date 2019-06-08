@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension NSAttributedStringKey {
+public extension NSAttributedString.Key {
 
-    static let highlight = NSAttributedStringKey("com.whoisryannystrom.styledtextkit.highlight")
+    static let highlight = NSAttributedString.Key("com.whoisryannystrom.styledtextkit.highlight")
 
 }

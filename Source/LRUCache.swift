@@ -71,7 +71,7 @@ public final class LRUCache<Key: Hashable & Equatable, Value: LRUCachable> {
             NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(clear),
-                name: .UIApplicationDidReceiveMemoryWarning,
+                name: UIApplication.didReceiveMemoryWarningNotification,
                 object: nil
             )
         }

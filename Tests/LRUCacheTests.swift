@@ -153,7 +153,7 @@ class LRUCacheTests: XCTestCase {
         XCTAssertEqual(cache.map.count, 3)
         XCTAssertEqual(cache.size, 10)
 
-        NotificationCenter.default.post(Notification(name: Notification.Name.UIApplicationDidReceiveMemoryWarning))
+        NotificationCenter.default.post(Notification(name: UIApplication.didReceiveMemoryWarningNotification))
 
         XCTAssertEqual(cache.map.count, 0)
         XCTAssertEqual(cache.size, 0)
@@ -170,7 +170,7 @@ class LRUCacheTests: XCTestCase {
         XCTAssertEqual(cache.map.count, 3)
         XCTAssertEqual(cache.size, 10)
 
-        NotificationCenter.default.post(Notification(name: Notification.Name.UIApplicationDidReceiveMemoryWarning))
+        NotificationCenter.default.post(Notification(name: UIApplication.didReceiveMemoryWarningNotification))
 
         XCTAssertEqual(cache.map.count, 3)
         XCTAssertEqual(cache.size, 10)

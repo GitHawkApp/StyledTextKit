@@ -23,9 +23,6 @@ public final class StyledTextString: Hashable, Equatable {
     public init(styledTexts: [StyledText], renderMode: RenderMode = .trimWhitespaceAndNewlines) {
         self.styledTexts = styledTexts
         self.renderMode = renderMode
-        _hashValue = styledTexts.reduce(0) {
-            $0 == 0 ? $1.hashValue : $0 ^ $1.hashValue
-        }
     }
 
     public var allText: String {
@@ -44,9 +41,10 @@ public final class StyledTextString: Hashable, Equatable {
 
     // MARK: Hashable
 
-    private let _hashValue: Int
-    public var hashValue: Int {
-        return _hashValue
+    public func hash(into hasher: inout Hasher) {
+        styledTexts.forEach {
+            hasher.combine($0)
+        }
     }
 
     // MARK: Equatable

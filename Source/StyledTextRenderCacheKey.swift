@@ -15,20 +15,4 @@ internal struct StyledTextRenderCacheKey: Hashable, Equatable {
     let backgroundColor: UIColor?
     let maximumNumberOfLines: Int?
 
-    // MARK: Hashable
-
-    var hashValue: Int {
-        return width
-            .combineHash(with: attributedText)
-    }
-
-    // MARK: Equatable
-
-    public static func ==(lhs: StyledTextRenderCacheKey, rhs: StyledTextRenderCacheKey) -> Bool {
-        return lhs.width == rhs.width
-            && lhs.attributedText == rhs.attributedText
-            && lhs.backgroundColor == rhs.backgroundColor
-            && lhs.maximumNumberOfLines == rhs.maximumNumberOfLines
-    }
-
 }

@@ -9,14 +9,14 @@
 import UIKit
 
 public protocol StyledTextViewDelegate: class {
-    func didTap(view: StyledTextView, attributes: [NSAttributedStringKey: Any], point: CGPoint)
-    func didLongPress(view: StyledTextView, attributes: [NSAttributedStringKey: Any], point: CGPoint)
+    func didTap(view: StyledTextView, attributes: [NSAttributedString.Key: Any], point: CGPoint)
+    func didLongPress(view: StyledTextView, attributes: [NSAttributedString.Key: Any], point: CGPoint)
 }
 
 open class StyledTextView: UIView {
 
     open weak var delegate: StyledTextViewDelegate?
-    open var gesturableAttributes = Set<NSAttributedStringKey>()
+    open var gesturableAttributes = Set<NSAttributedString.Key>()
     open var drawsAsync = false
 
     private var renderer: StyledTextRenderer?
@@ -37,7 +37,7 @@ open class StyledTextView: UIView {
     private func commonInit() {
         translatesAutoresizingMaskIntoConstraints = false
 
-        layer.contentsGravity = kCAGravityTopLeft
+        layer.contentsGravity = CALayerContentsGravity.topLeft
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
         tap.cancelsTouchesInView = false
