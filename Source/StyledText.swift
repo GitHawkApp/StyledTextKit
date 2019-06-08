@@ -29,6 +29,14 @@ public class StyledText: Hashable, Equatable {
 
         // MARK: Hashable
 
+        public func hash(into hasher: inout Hasher) {
+            switch self {
+            case .text(let text): hasher.combine(text)
+            case .attributedText(let text): hasher.combine(text)
+            case .image(let image, _): hasher.combine(image)
+            }
+        }
+
         public var hashValue: Int {
             switch self {
             case .text(let text): return text.hashValue
@@ -136,9 +144,9 @@ public class StyledText: Hashable, Equatable {
 
     // MARK: Hashable
 
-    public var hashValue: Int {
-        return storage
-            .combineHash(with: style)
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(storage)
+        hasher.combine(style)
     }
 
     // MARK: Equatable

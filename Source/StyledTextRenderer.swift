@@ -34,8 +34,8 @@ public final class StyledTextRenderer {
         clearOnWarning: true
     )
 
-    internal var sizeCache: LRUCache<StyledTextRenderCacheKey, CGSize>
-    internal var bitmapCache: LRUCache<StyledTextRenderCacheKey, CGImage>
+    internal let sizeCache: LRUCache<StyledTextRenderCacheKey, CGSize>
+    internal let bitmapCache: LRUCache<StyledTextRenderCacheKey, CGImage>
 
     public convenience init(
         string: StyledTextString,
@@ -159,7 +159,7 @@ public final class StyledTextRenderer {
         return (contents, size)
     }
 
-    public func attributes(at point: CGPoint) -> (attributes: [NSAttributedStringKey: Any], index: Int)? {
+    public func attributes(at point: CGPoint) -> (attributes: [NSAttributedString.Key: Any], index: Int)? {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
         var fractionDistance: CGFloat = 1.0

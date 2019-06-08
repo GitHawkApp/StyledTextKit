@@ -12,6 +12,6 @@ extension UIImage {
     draw(in: CGRect(x: 0, y: 0, width: pixelSize.width, height: pixelSize.height))
    
     guard let drawnImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-    return UIImagePNGRepresentation(drawnImage)
+    return drawnImage.pngData()
   }
 }

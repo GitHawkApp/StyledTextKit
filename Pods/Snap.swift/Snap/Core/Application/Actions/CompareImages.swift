@@ -32,7 +32,7 @@ struct CompareImages {
       return
     }
     
-    guard let pngImage = UIImagePNGRepresentation(image), let processedImage = UIImage(data: pngImage) else {
+    guard let pngImage = image.pngData(), let processedImage = UIImage(data: pngImage) else {
       XCTFail("🚫 Cannot process view image")
       return
     }

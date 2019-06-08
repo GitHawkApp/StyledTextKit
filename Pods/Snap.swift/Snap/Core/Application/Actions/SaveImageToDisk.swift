@@ -13,7 +13,7 @@ struct SaveImageToDisk {
   }
   
   func execute(with image: UIImage, with reference: Reference) {
-    let referenceImage = UIImagePNGRepresentation(image)
+    let referenceImage = image.pngData()
     
     do {
       try fileManager.createDirectory(atPath: reference.directory.path, withIntermediateDirectories: true)

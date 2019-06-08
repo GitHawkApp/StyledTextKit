@@ -12,7 +12,7 @@ public struct TextStyle: Hashable, Equatable {
 
     public let font: Font
     public let size: CGFloat
-    public let attributes: [NSAttributedStringKey: Any]
+    public let attributes: [NSAttributedString.Key: Any]
     public let minSize: CGFloat
     public let maxSize: CGFloat
     public let scalingTextStyle: UIFont.TextStyle
@@ -20,7 +20,7 @@ public struct TextStyle: Hashable, Equatable {
     public init(
         font: Font = .system(.default),
         size: CGFloat = UIFont.systemFontSize,
-        attributes: [NSAttributedStringKey: Any] = [:],
+        attributes: [NSAttributedString.Key: Any] = [:],
         minSize: CGFloat = 0,
         maxSize: CGFloat = .greatestFiniteMagnitude,
         scalingTextStyle: UIFont.TextStyle = .body
@@ -31,13 +31,6 @@ public struct TextStyle: Hashable, Equatable {
         self.minSize = minSize
         self.maxSize = maxSize
         self.scalingTextStyle = scalingTextStyle
-
-        self._hashValue = font
-            .combineHash(with: size)
-            .combineHash(with: attributes.count)
-            .combineHash(with: minSize)
-            .combineHash(with: maxSize)
-            .combineHash(with: scalingTextStyle)
     }
 
     public func font(contentSizeCategory: UIContentSizeCategory) -> UIFont {
@@ -73,9 +66,13 @@ public struct TextStyle: Hashable, Equatable {
 
     // MARK: Hashable
 
-    internal let _hashValue: Int
-    public var hashValue: Int {
-        return _hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(font)
+        hasher.combine(size)
+        hasher.combine(attributes.count)
+        hasher.combine(minSize)
+        hasher.combine(maxSize)
+        hasher.combine(scalingTextStyle)
     }
 
     // MARK: Equatable

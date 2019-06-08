@@ -30,7 +30,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
         self.styledTexts = styledTexts
     }
 
-    public var tipAttributes: [NSAttributedStringKey: Any]? {
+    public var tipAttributes: [NSAttributedString.Key: Any]? {
         return styledTexts.last?.style.attributes
     }
 
@@ -72,8 +72,8 @@ public final class StyledTextBuilder: Hashable, Equatable {
     @discardableResult
     public func add(
         text: String,
-        traits: UIFontDescriptorSymbolicTraits? = nil,
-        attributes: [NSAttributedStringKey: Any]? = nil
+        traits: UIFontDescriptor.SymbolicTraits? = nil,
+        attributes: [NSAttributedString.Key: Any]? = nil
         ) -> StyledTextBuilder {
         return add(storage: .text(text), traits: traits, attributes: attributes)
     }
@@ -81,8 +81,8 @@ public final class StyledTextBuilder: Hashable, Equatable {
     @discardableResult
     public func add(
         attributedText: NSAttributedString,
-        traits: UIFontDescriptorSymbolicTraits? = nil,
-        attributes: [NSAttributedStringKey: Any]? = nil
+        traits: UIFontDescriptor.SymbolicTraits? = nil,
+        attributes: [NSAttributedString.Key: Any]? = nil
         ) -> StyledTextBuilder {
         return add(storage: .attributedText(attributedText), traits: traits, attributes: attributes)
     }
@@ -90,8 +90,8 @@ public final class StyledTextBuilder: Hashable, Equatable {
     @discardableResult
     public func add(
         storage: StyledText.Storage = .text(""),
-        traits: UIFontDescriptorSymbolicTraits? = nil,
-        attributes: [NSAttributedStringKey: Any]? = nil
+        traits: UIFontDescriptor.SymbolicTraits? = nil,
+        attributes: [NSAttributedString.Key: Any]? = nil
         ) -> StyledTextBuilder {
         guard let tip = styledTexts.last else { return self }
 
@@ -135,7 +135,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
     public func add(
         image: UIImage,
         options: [StyledText.ImageFitOptions] = [.fit, .center],
-        attributes: [NSAttributedStringKey: Any]? = nil
+        attributes: [NSAttributedString.Key: Any]? = nil
         ) -> StyledTextBuilder {
         return add(storage: .image(image, options), attributes: attributes)
     }
@@ -153,13 +153,9 @@ public final class StyledTextBuilder: Hashable, Equatable {
 
     // MARK: Hashable
 
-    public var hashValue: Int {
-        guard let seed: Int = styledTexts.first?.hashValue else { return 0 }
-        let count = styledTexts.count
-        if count > 1 {
-            return styledTexts[1...count].reduce(seed, { $0.combineHash(with: $1) })
-        } else {
-            return seed
+    public func hash(into hasher: inout Hasher) {
+        styledTexts.forEach {
+            hasher.combine($0)
         }
     }
 
