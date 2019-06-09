@@ -9,8 +9,8 @@
 import UIKit
 
 public protocol StyledTextViewDelegate: class {
-    func didTap(view: StyledTextView, attributes: [NSAttributedString.Key: Any], point: CGPoint)
-    func didLongPress(view: StyledTextView, attributes: [NSAttributedString.Key: Any], point: CGPoint)
+    func didTap(view: StyledTextView, attributes: NSAttributedStringAttributesType, point: CGPoint)
+    func didLongPress(view: StyledTextView, attributes: NSAttributedStringAttributesType, point: CGPoint)
 }
 
 open class StyledTextView: UIView {

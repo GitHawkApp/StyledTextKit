@@ -12,7 +12,7 @@ public struct TextStyle: Hashable, Equatable {
 
     public let font: Font
     public let size: CGFloat
-    public let attributes: [NSAttributedString.Key: Any]
+    public let attributes: NSAttributedStringAttributesType
     public let minSize: CGFloat
     public let maxSize: CGFloat
     public let scalingTextStyle: UIFont.TextStyle
@@ -20,7 +20,7 @@ public struct TextStyle: Hashable, Equatable {
     public init(
         font: Font = .system(.default),
         size: CGFloat = UIFont.systemFontSize,
-        attributes: [NSAttributedString.Key: Any] = [:],
+        attributes: NSAttributedStringAttributesType = [:],
         minSize: CGFloat = 0,
         maxSize: CGFloat = .greatestFiniteMagnitude,
         scalingTextStyle: UIFont.TextStyle = .body
@@ -62,28 +62,6 @@ public struct TextStyle: Hashable, Equatable {
             case .monospaced(let weight): return UIFont.monospacedDigitSystemFont(ofSize: preferredSize, weight: weight)
             }
         }
-    }
-
-    // MARK: Hashable
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(font)
-        hasher.combine(size)
-        hasher.combine(attributes.count)
-        hasher.combine(minSize)
-        hasher.combine(maxSize)
-        hasher.combine(scalingTextStyle)
-    }
-
-    // MARK: Equatable
-
-    public static func ==(lhs: TextStyle, rhs: TextStyle) -> Bool {
-        return lhs.size == rhs.size
-            && lhs.minSize == rhs.minSize
-            && rhs.maxSize == rhs.maxSize
-            && lhs.font == rhs.font
-            && lhs.scalingTextStyle == rhs.scalingTextStyle
-            && NSDictionary(dictionary: lhs.attributes).isEqual(to: rhs.attributes)
     }
 
 }

@@ -37,14 +37,6 @@ public class StyledText: Hashable, Equatable {
             }
         }
 
-        public var hashValue: Int {
-            switch self {
-            case .text(let text): return text.hashValue
-            case .attributedText(let text): return text.hashValue
-            case .image(let image, _): return image.hashValue
-            }
-        }
-
         // MARK: Equatable
 
         public static func ==(lhs: Storage, rhs: Storage) -> Bool {
@@ -152,7 +144,8 @@ public class StyledText: Hashable, Equatable {
     // MARK: Equatable
 
     public static func ==(lhs: StyledText, rhs: StyledText) -> Bool {
-        return lhs.storage == rhs.storage
+        return lhs === rhs
+            || lhs.storage == rhs.storage
             && lhs.style == rhs.style
     }
 

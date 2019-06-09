@@ -30,7 +30,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
         self.styledTexts = styledTexts
     }
 
-    public var tipAttributes: [NSAttributedString.Key: Any]? {
+    public var tipAttributes: NSAttributedStringAttributesType? {
         return styledTexts.last?.style.attributes
     }
 
@@ -73,7 +73,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
     public func add(
         text: String,
         traits: UIFontDescriptor.SymbolicTraits? = nil,
-        attributes: [NSAttributedString.Key: Any]? = nil
+        attributes: NSAttributedStringAttributesType? = nil
         ) -> StyledTextBuilder {
         return add(storage: .text(text), traits: traits, attributes: attributes)
     }
@@ -82,7 +82,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
     public func add(
         attributedText: NSAttributedString,
         traits: UIFontDescriptor.SymbolicTraits? = nil,
-        attributes: [NSAttributedString.Key: Any]? = nil
+        attributes: NSAttributedStringAttributesType? = nil
         ) -> StyledTextBuilder {
         return add(storage: .attributedText(attributedText), traits: traits, attributes: attributes)
     }
@@ -91,7 +91,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
     public func add(
         storage: StyledText.Storage = .text(""),
         traits: UIFontDescriptor.SymbolicTraits? = nil,
-        attributes: [NSAttributedString.Key: Any]? = nil
+        attributes: NSAttributedStringAttributesType? = nil
         ) -> StyledTextBuilder {
         guard let tip = styledTexts.last else { return self }
 
@@ -135,7 +135,7 @@ public final class StyledTextBuilder: Hashable, Equatable {
     public func add(
         image: UIImage,
         options: [StyledText.ImageFitOptions] = [.fit, .center],
-        attributes: [NSAttributedString.Key: Any]? = nil
+        attributes: NSAttributedStringAttributesType? = nil
         ) -> StyledTextBuilder {
         return add(storage: .image(image, options), attributes: attributes)
     }
@@ -162,8 +162,8 @@ public final class StyledTextBuilder: Hashable, Equatable {
     // MARK: Equatable
 
     public static func ==(lhs: StyledTextBuilder, rhs: StyledTextBuilder) -> Bool {
-        if lhs === rhs { return true }
-        return lhs.styledTexts == rhs.styledTexts
+        return lhs === rhs
+        || lhs.styledTexts == rhs.styledTexts
     }
 
 }

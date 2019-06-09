@@ -31,6 +31,7 @@
 		29BAEE4920C339D100F283EA /* StyledTextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3420C339D100F283EA /* StyledTextBuilder.swift */; };
 		29BAEE4B20C339D100F283EA /* StyledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3620C339D100F283EA /* StyledText.swift */; };
 		29BAEE4C20C339D100F283EA /* StyledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE3720C339D100F283EA /* StyledTextView.swift */; };
+		29D7C5E822AD797E005BDC17 /* NSAttributedStringAttributesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7C5E722AD797E005BDC17 /* NSAttributedStringAttributesType.swift */; };
 		3D4040F520F40F2B00ED4B3D /* StyledTextBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE1220C339C800F283EA /* StyledTextBuilderTests.swift */; };
 		3D931C8520F412FC0090FFFB /* StyledTextRendererSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */; };
 		3D931C8620F412FF0090FFFB /* StyledTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAEE0E20C339C800F283EA /* StyledTextTests.swift */; };
@@ -125,6 +126,7 @@
 		29BAEE3620C339D100F283EA /* StyledText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledText.swift; sourceTree = "<group>"; };
 		29BAEE3720C339D100F283EA /* StyledTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextView.swift; sourceTree = "<group>"; };
 		29BAEE4D20C33A3F00F283EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		29D7C5E722AD797E005BDC17 /* NSAttributedStringAttributesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringAttributesType.swift; sourceTree = "<group>"; };
 		5DA9D30284894EF619A71075 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		660B43ECDF42D84142029C1F /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		73D1CEE14004B5BBA25A669D /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +313,7 @@
 				29BAEE2D20C339D100F283EA /* TextStyle.swift */,
 				29BAEE2620C339D100F283EA /* UIContentSizeCategory+Scaling.swift */,
 				29BAEE2C20C339D100F283EA /* UIScreen+Static.swift */,
+				29D7C5E722AD797E005BDC17 /* NSAttributedStringAttributesType.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				29BAEE4C20C339D100F283EA /* StyledTextView.swift in Sources */,
 				29BAEE3F20C339D100F283EA /* NSLayoutManager+Render.swift in Sources */,
 				29BAEE4020C339D100F283EA /* CGSize+Utility.swift in Sources */,
+				29D7C5E822AD797E005BDC17 /* NSAttributedStringAttributesType.swift in Sources */,
 				29BAEE3920C339D100F283EA /* CGSize+LRUCachable.swift in Sources */,
 				29BAEE4120C339D100F283EA /* UIScreen+Static.swift in Sources */,
 				29BAEE3A20C339D100F283EA /* NSAttributedStringKey+StyledText.swift in Sources */,
