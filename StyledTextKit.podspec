@@ -8,5 +8,5 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => 'https://github.com/GitHawkApp/StyledTextKit.git', :tag => spec.version.to_s }
   spec.source_files = 'Source/*.swift'
   spec.platform     = :ios, '10.0'
-  spec.swift_version = '4.0'
+  spec.swift_version = '5.0'
 end
