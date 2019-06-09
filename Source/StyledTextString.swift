@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public final class StyledTextString: Hashable, Equatable {
+public struct StyledTextString: Hashable, Equatable {
 
     public enum RenderMode {
         case trimWhitespaceAndNewlines
@@ -37,21 +37,6 @@ public final class StyledTextString: Hashable, Equatable {
         case .trimWhitespace: return result.trimCharactersInSet(charSet: CharacterSet.whitespaces)
         case .preserve: return result
         }
-    }
-
-    // MARK: Hashable
-
-    public func hash(into hasher: inout Hasher) {
-        styledTexts.forEach {
-            hasher.combine($0)
-        }
-    }
-
-    // MARK: Equatable
-
-    public static func ==(lhs: StyledTextString, rhs: StyledTextString) -> Bool {
-        if lhs === rhs { return true }
-        return lhs.styledTexts == rhs.styledTexts
     }
 
 }

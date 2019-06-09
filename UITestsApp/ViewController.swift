@@ -55,13 +55,14 @@ class ViewController: UIViewController {
 
 extension ViewController: StyledTextViewDelegate {
 
-    func didTap(view: StyledTextView, attributes: [NSAttributedString.Key : Any], point: CGPoint) {
+    func didTap(view: StyledTextView, attributes: NSAttributedStringAttributesType, point: CGPoint) {
         guard let linkContent = attributes[.highlight] as? String else { return }
         stateLabel.text = "didTap: \(linkContent)"
     }
 
-    func didLongPress(view: StyledTextView, attributes: [NSAttributedString.Key : Any], point: CGPoint) {
+    func didLongPress(view: StyledTextView, attributes: NSAttributedStringAttributesType, point: CGPoint) {
         guard let linkContent = attributes[.highlight] as? String else { return }
         stateLabel.text = "didLongPress: \(linkContent)"
     }
+
 }

@@ -159,7 +159,7 @@ public final class StyledTextRenderer {
         return (contents, size)
     }
 
-    public func attributes(at point: CGPoint) -> (attributes: [NSAttributedString.Key: Any], index: Int)? {
+    public func attributes(at point: CGPoint) -> (attributes: NSAttributedStringAttributesType, index: Int)? {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
         var fractionDistance: CGFloat = 1.0
@@ -170,7 +170,7 @@ public final class StyledTextRenderer {
         )
         if index != NSNotFound,
             fractionDistance < 1.0,
-            let attributes = layoutManager.textStorage?.attributes(at: index, effectiveRange: nil) {
+            let attributes = layoutManager.textStorage?.attributes(at: index, effectiveRange: nil) as? NSAttributedStringAttributesType {
             return (attributes, index)
         }
         return nil
