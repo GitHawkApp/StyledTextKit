@@ -93,13 +93,6 @@
 		29B20607217C15B200E4DD9F /* octoface@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octoface@3x.png"; sourceTree = "<group>"; };
 		29B20608217C15B200E4DD9F /* octoface@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "octoface@2x.png"; sourceTree = "<group>"; };
 		29BAEDFD20C339C800F283EA /* LRUCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRUCacheTests.swift; sourceTree = "<group>"; };
-		29BAEE0220C339C800F283EA /* reference_test_lorem_100@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_lorem_100@3x.png"; sourceTree = "<group>"; };
-		29BAEE0320C339C800F283EA /* reference_test_complexbuilder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_complexbuilder@3x.png"; sourceTree = "<group>"; };
-		29BAEE0420C339C800F283EA /* reference_test_clearbackground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_clearbackground@3x.png"; sourceTree = "<group>"; };
-		29BAEE0520C339C800F283EA /* reference_test_lorem_200@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_lorem_200@3x.png"; sourceTree = "<group>"; };
-		29BAEE0620C339C800F283EA /* reference_test_lorem_300@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reference_test_lorem_300@3x.png"; sourceTree = "<group>"; };
-		29BAEE0920C339C800F283EA /* diff_test_complexbuilder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diff_test_complexbuilder@3x.png"; sourceTree = "<group>"; };
-		29BAEE0C20C339C800F283EA /* failed_test_complexbuilder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failed_test_complexbuilder@3x.png"; sourceTree = "<group>"; };
 		29BAEE0E20C339C800F283EA /* StyledTextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextTests.swift; sourceTree = "<group>"; };
 		29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledTextRendererSnapshotTests.swift; sourceTree = "<group>"; };
 		29BAEE1020C339C800F283EA /* TextStyleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleTests.swift; sourceTree = "<group>"; };
@@ -218,7 +211,6 @@
 				29B20607217C15B200E4DD9F /* octoface@3x.png */,
 				29BAEE1120C339C800F283EA /* Info.plist */,
 				29BAEDFD20C339C800F283EA /* LRUCacheTests.swift */,
-				29BAEDFF20C339C800F283EA /* snapshots */,
 				29BAEE1220C339C800F283EA /* StyledTextBuilderTests.swift */,
 				29BAEE0F20C339C800F283EA /* StyledTextRendererSnapshotTests.swift */,
 				29BAEE0E20C339C800F283EA /* StyledTextTests.swift */,
@@ -226,68 +218,6 @@
 				294129B922AC58A200B9BC5D /* StyledTextStringTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		29BAEDFF20C339C800F283EA /* snapshots */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0020C339C800F283EA /* Snap */,
-			);
-			path = snapshots;
-			sourceTree = "<group>";
-		};
-		29BAEE0020C339C800F283EA /* Snap */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0120C339C800F283EA /* StyledTextRendererSnapshotTests */,
-				29BAEE0720C339C800F283EA /* Diff */,
-				29BAEE0A20C339C800F283EA /* Failed */,
-			);
-			path = Snap;
-			sourceTree = "<group>";
-		};
-		29BAEE0120C339C800F283EA /* StyledTextRendererSnapshotTests */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0220C339C800F283EA /* reference_test_lorem_100@3x.png */,
-				29BAEE0320C339C800F283EA /* reference_test_complexbuilder@3x.png */,
-				29BAEE0420C339C800F283EA /* reference_test_clearbackground@3x.png */,
-				29BAEE0520C339C800F283EA /* reference_test_lorem_200@3x.png */,
-				29BAEE0620C339C800F283EA /* reference_test_lorem_300@3x.png */,
-			);
-			path = StyledTextRendererSnapshotTests;
-			sourceTree = "<group>";
-		};
-		29BAEE0720C339C800F283EA /* Diff */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0820C339C800F283EA /* StyledTextRendererSnapshotTests */,
-			);
-			path = Diff;
-			sourceTree = "<group>";
-		};
-		29BAEE0820C339C800F283EA /* StyledTextRendererSnapshotTests */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0920C339C800F283EA /* diff_test_complexbuilder@3x.png */,
-			);
-			path = StyledTextRendererSnapshotTests;
-			sourceTree = "<group>";
-		};
-		29BAEE0A20C339C800F283EA /* Failed */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0B20C339C800F283EA /* StyledTextRendererSnapshotTests */,
-			);
-			path = Failed;
-			sourceTree = "<group>";
-		};
-		29BAEE0B20C339C800F283EA /* StyledTextRendererSnapshotTests */ = {
-			isa = PBXGroup;
-			children = (
-				29BAEE0C20C339C800F283EA /* failed_test_complexbuilder@3x.png */,
-			);
-			path = StyledTextRendererSnapshotTests;
 			sourceTree = "<group>";
 		};
 		29BAEE2220C339D100F283EA /* Source */ = {
@@ -554,11 +484,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Snap.swift/Snap_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Snap_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -677,6 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.whoisryannystrom.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -695,6 +626,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.whoisryannystrom.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

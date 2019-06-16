@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Snap_swift
+import FBSnapshotTestCase
 @testable import StyledTextKit
 
 extension UIView {
@@ -20,7 +20,7 @@ extension UIView {
 
 }
 
-class SnapTests: XCTestCase {
+class SnapTests: FBSnapshotTestCase {
 
     let testScale: CGFloat = 2
     let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -44,7 +44,7 @@ class SnapTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-//        isRecording = true
+//        recordMode = true
         sizeCache.clear()
         bitmapCache.clear()
     }
@@ -62,7 +62,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 100, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 100, renderer: renderer))
     }
 
     func test_lorem_200() {
@@ -78,7 +78,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 200, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 200, renderer: renderer))
     }
 
     func test_lorem_300() {
@@ -94,7 +94,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
 
     func test_complexBuilder() {
@@ -120,7 +120,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
 
     func test_clearBackground() {
@@ -128,7 +128,7 @@ class SnapTests: XCTestCase {
         let renderer = StyledTextRenderer(string: string, contentSizeCategory: .large, scale: testScale)
         let view = UIView()
         view.backgroundColor = .blue
-        expect(view.mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
     
     func test_maxNumberOfLinesUnlimited() {
@@ -144,7 +144,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
     
     func test_maxNumberOfLinesLimited() {
@@ -160,7 +160,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
 
     func test_addingImageWithTint_withBaseOptions() {
@@ -181,7 +181,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
 
     func test_addingImageWithTint_withCenter() {
@@ -202,7 +202,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
 
     func test_addingImageWithTint_withNoOptions() {
@@ -223,7 +223,7 @@ class SnapTests: XCTestCase {
             sizeCache: sizeCache,
             bitmapCache: bitmapCache
         )
-        expect(UIView().mount(width: 300, renderer: renderer)).toMatchSnapshot()
+        FBSnapshotVerifyView(UIView().mount(width: 300, renderer: renderer))
     }
 
 }

@@ -82,8 +82,8 @@
       </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "SNAP_REFERENCE_IMAGE_PATH"
-            value = "$(SOURCE_ROOT)/Tests/snapshots/"
+            key = "FB_REFERENCE_IMAGE_DIR"
+            value = "$(SOURCE_ROOT)/Tests/ReferenceImages"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
