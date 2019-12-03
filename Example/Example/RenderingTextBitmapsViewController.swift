@@ -37,7 +37,7 @@ class RenderingTextBitmapsViewController: UIViewController {
         let result = renderer.render(for: UIScreen.main.bounds.width)
         
         view.layer.contents = result.image
-        view.layer.contentsGravity = kCAGravityCenter
+        view.layer.contentsGravity = CALayerContentsGravity.center
     }
     
 }
