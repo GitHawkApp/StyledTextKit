@@ -15,7 +15,6 @@
 		2DF19734DD46D1E87D56DD0AD5B467A8 /* UIScreen+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A944568E8A62CBBE837A6BE4C4A25DF /* UIScreen+Static.swift */; };
 		4BFDE7D6BE71729C21EB7D7E48F91FF3 /* CGSize+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6061B9D1E487F29C4F716EDF6200E28 /* CGSize+Utility.swift */; };
 		563EDA662045138AD33B7E167657B090 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D3FE98E9F2D34863BD3F3597A0485A /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B874D5378A52729C54DB1E6604417D4 /* UIFont+UnionTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A270E6F817C31297BC1CCE1DB1EADC /* UIFont+UnionTraits.swift */; };
 		6F1E9B4362E79BFB84C5193DE2E0F7D6 /* StyledTextRenderCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9739E0399DE8DB00D93B5CEFC91A9 /* StyledTextRenderCacheKey.swift */; };
 		8481CAC1D19F9905F649C1FB77F3DDFC /* NSLayoutManager+Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E624910A79239D6EAA041A3E0D8E14 /* NSLayoutManager+Render.swift */; };
 		88CF83EDD56080526F04864638297965 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -52,7 +51,6 @@
 		1AD65E35A3233FBE6F2EFDEB3D43D114 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
 		1F8430A1B292CED47DFE2A2A4007F67D /* StyledTextString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StyledTextString.swift; path = Source/StyledTextString.swift; sourceTree = "<group>"; };
 		25A37D4D536CC5988A439441117C41F4 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
-		26A270E6F817C31297BC1CCE1DB1EADC /* UIFont+UnionTraits.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIFont+UnionTraits.swift"; path = "Source/UIFont+UnionTraits.swift"; sourceTree = "<group>"; };
 		2B41C09C62974972ECEE49E20E104EBC /* NSAttributedString+Trim.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Trim.swift"; path = "Source/NSAttributedString+Trim.swift"; sourceTree = "<group>"; };
 		38A9739E0399DE8DB00D93B5CEFC91A9 /* StyledTextRenderCacheKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StyledTextRenderCacheKey.swift; path = Source/StyledTextRenderCacheKey.swift; sourceTree = "<group>"; };
 		3ADE9E5655579DB0F79DC9C80758673C /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 				52F2322704DDBCBA86F38BFCA2901435 /* StyledTextView.swift */,
 				74D960413BB43C4198458E8AEB102279 /* TextStyle.swift */,
 				F77B7E3BB7118F5BB69A41EE6E170750 /* UIContentSizeCategory+Scaling.swift */,
-				26A270E6F817C31297BC1CCE1DB1EADC /* UIFont+UnionTraits.swift */,
 				9A944568E8A62CBBE837A6BE4C4A25DF /* UIScreen+Static.swift */,
 				65623E7A3C4DC8F8D247EFDE73F51402 /* Pod */,
 				9979DBE16E5C5E547064960C85E0BAA0 /* Support Files */,
@@ -339,7 +336,6 @@
 				E727FEDC94DE586EBD8B9B11B1C8428A /* StyledTextView.swift in Sources */,
 				2563C5DAEA96511DD4DD10C0EEE2C3F8 /* TextStyle.swift in Sources */,
 				A0FE5D54F60C851DA0A847D8D1C6E8AB /* UIContentSizeCategory+Scaling.swift in Sources */,
-				6B874D5378A52729C54DB1E6604417D4 /* UIFont+UnionTraits.swift in Sources */,
 				2DF19734DD46D1E87D56DD0AD5B467A8 /* UIScreen+Static.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
