@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol LRUCachable {
     var cachedSize: Int { get }
