@@ -10,9 +10,9 @@ import UIKit
 import StyledTextKit
 import SafariServices
 
-extension NSAttributedStringKey {
+extension NSAttributedString.Key {
     
-    public static let tapable = NSAttributedStringKey(rawValue: "tapable")
+    public static let tapable = NSAttributedString.Key(rawValue: "tapable")
     
 }
 
@@ -83,13 +83,13 @@ class BackgroundRenderingViewController: UIViewController {
 }
 
 extension BackgroundRenderingViewController: StyledTextViewDelegate {
-    
-    func didTap(view: StyledTextView, attributes: [NSAttributedStringKey : Any], point: CGPoint) {
+
+    func didTap(view: StyledTextView, attributes: NSAttributedStringAttributesType, point: CGPoint) {
         guard let action = attributes[.tapable] as? Selector else { return }
 
         perform(action)
     }
     
-    func didLongPress(view: StyledTextView, attributes: [NSAttributedStringKey : Any], point: CGPoint) {}
+    func didLongPress(view: StyledTextView, attributes: NSAttributedStringAttributesType, point: CGPoint) {}
     
 }

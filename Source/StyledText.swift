@@ -120,17 +120,21 @@ public class StyledText: Hashable, Equatable {
             }
             attachment.bounds = bounds
 
-            // non-breaking space so the color hack doesn't wrap
-            let attributedString = NSMutableAttributedString(string: "\u{00A0}")
-            attributedString.append(NSAttributedString(attachment: attachment))
-            // replace attributes to 0 size font so no actual space taken
-            attributes[.font] = UIFont.systemFont(ofSize: 0)
-            // override all attributes so color actually tints image
-            attributedString.addAttributes(
-                attributes,
-                range: NSRange(location: 0, length: attributedString.length)
-            )
-            return attributedString
+            if #available(iOS 15.0, *) {
+                return NSAttributedString(attachment: attachment)
+            } else {
+                // non-breaking space so the color hack doesn't wrap
+                let attributedString = NSMutableAttributedString(string: "\u{00A0}")
+                attributedString.append(NSAttributedString(attachment: attachment))
+                // replace attributes to 0 size font so no actual space taken
+                attributes[.font] = UIFont.systemFont(ofSize: 0)
+                // override all attributes so color actually tints image
+                attributedString.addAttributes(
+                    attributes,
+                    range: NSRange(location: 0, length: attributedString.length)
+                )
+                return attributedString
+            }
         }
     }
 
